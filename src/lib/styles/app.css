@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body,
+  html {
+    @apply h-full;
+  }
+  body {
+    @apply font-body bg-neutral-50 text-base dark:text-neutral-200 dark:bg-gray-800;
+  }
+  .svelte-container {
+    @apply container mx-auto flex min-h-full flex-col px-2;
+  }
+}
