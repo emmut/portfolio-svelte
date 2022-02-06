@@ -16,6 +16,9 @@ export default {
         source: "title",
         maxLenght: 96,
       },
+      validation: Rule => [
+        Rule.required().warning('Required'),
+      ]
     },
     {
       name: "image",
