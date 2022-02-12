@@ -56,5 +56,11 @@ export default {
         },
       ],
     },
+    {
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      // initialValue: 'tjäna'
+    }
   ],
 };
