@@ -8,5 +8,6 @@
     "./**/*.tsx",
     "schemas/schema.js",
     "schemas/portfolio.js"
-  ]
+  ],
+  "ignore": ["node_modules"]
 }
