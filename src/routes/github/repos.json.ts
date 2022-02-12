@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
 import type { EndpointOutput } from '@sveltejs/kit';
+import type { Repos } from '$lib/types/Repos';
 import { endpoint } from '$lib/config/default';
 
 export async function get(): Promise<EndpointOutput> {
@@ -39,7 +40,7 @@ export async function get(): Promise<EndpointOutput> {
     },
   });
 
-  const data = await client.request(query);
+  const data: Repos = await client.request(query);
 
   return {
     status: 200,

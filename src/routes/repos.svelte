@@ -20,10 +20,11 @@
   }
 </script>
 
-<script>
+<script lang="ts">
   import Card from '$lib/components/Card.svelte';
+  import type { Repos } from '$lib/types/Repos';
 
-  export let repos;
+  export let repos: Repos;
 </script>
 
 <div class="flex flex-col gap-3">

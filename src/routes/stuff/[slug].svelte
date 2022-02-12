@@ -21,8 +21,10 @@
   }
 </script>
 
-<script>
-  export let portfolio;
+<script lang="ts">
+  import type { Portfolio } from '$lib/types/Portfolio';
+
+  export let portfolio: Portfolio;
 </script>
 
 {portfolio.title}

@@ -28,8 +28,8 @@
 </script>
 
 <div class="grid grid-cols-12">
-  {#each portfolios as portfolio}
-    <a href="/stuff/{portfolio.slug.current}">
+  {#each portfolios as portfolio, i}
+    <a class={i % 4 === 0 ? 'col-span-8' : 'col-span-4'} href="/stuff/{portfolio.slug.current}">
       {#if portfolio.image}
         <img src={urlFor(portfolio.image).width(400).url()} alt="" />
       {/if}
