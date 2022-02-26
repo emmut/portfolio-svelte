@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
-  import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
+  import type { Load } from '@sveltejs/kit';
+  export const load: Load = async ({ fetch }) => {
     const res = await fetch('/github/profile.json');
     const profile = await res.json();
 
@@ -16,7 +16,7 @@
       status: res.status,
       error: new Error('could not fetch profile'),
     };
-  }
+  };
 </script>
 
 <script lang="ts">

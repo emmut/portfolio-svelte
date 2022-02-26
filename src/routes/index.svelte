@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+  import type { Load } from '@sveltejs/kit';
 
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
+  export const load: Load = async ({ fetch }) => {
     const res = await fetch('/portfolio/all.json');
     const portfolios = await res.json();
 
@@ -17,7 +17,7 @@
       status: res.status,
       error: new Error('could not get portfolios'),
     };
-  }
+  };
 </script>
 
 <script lang="ts">

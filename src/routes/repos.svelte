@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+  import type { Load } from '@sveltejs/kit';
 
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
+  export const load: Load = async ({ fetch }) => {
     const res = await fetch('/github/repos.json');
     const repos = await res.json();
 
@@ -17,7 +17,7 @@
       status: res.status,
       error: new Error('a problem fetching repos occured'),
     };
-  }
+  };
 </script>
 
 <script lang="ts">
