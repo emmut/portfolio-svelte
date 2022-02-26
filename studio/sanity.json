@@ -2,7 +2,7 @@
   "root": true,
   "api": {
     "projectId": "ql7rbeue",
-    "dataset": "production"
+    "dataset": "development"
   },
   "project": {
     "name": "portfolio"
@@ -17,9 +17,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
