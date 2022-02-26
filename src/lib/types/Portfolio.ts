@@ -1,9 +1,10 @@
 export type Portfolio = {
   _id: number;
   title: string;
-  slug?: {
+  slug: {
     current: string;
     _type: string;
   };
   image?: string;
+  excerpt?: string;
 };

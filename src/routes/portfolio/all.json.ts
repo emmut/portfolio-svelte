@@ -9,7 +9,8 @@ export async function get(): Promise<{
     _id,
     image,
     title,
-    slug
+    slug,
+    excerpt,
   }`);
 
   if (data) {

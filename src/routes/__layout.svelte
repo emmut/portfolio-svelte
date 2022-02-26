@@ -24,6 +24,7 @@
   import { github } from '$lib/config/default';
   import Card from '$lib/components/Card.svelte';
   import Icon from '$lib/components/Icon.svelte';
+  import ToggleDarkMode from '$lib/components/ToggleDarkMode.svelte';
   import NavLink from '$lib/components/NavLink.svelte';
   import '$lib/styles/app.css';
   import '@fontsource/inter';
@@ -33,13 +34,26 @@
   const { avatarUrl, login, bio, name } = profile.viewer;
 </script>
 
+<svelte:head>
+  <script>
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</svelte:head>
+
 <header class="flex items-center gap-5 py-10">
   <div class="md:w-96">
     <a class="text-3xl" href="/">
       <span class="text-pink-600 dark:text-green-500">/</span>emmut
     </a>
   </div>
-  <div class="w-full">
+  <div class="flex w-full">
     <nav
       class="mx-auto flex w-full max-w-2xl items-center justify-center gap-4 font-semibold md:gap-20"
     >
@@ -47,6 +61,8 @@
       <NavLink href="/me">Me</NavLink>
       <NavLink href="/repos">Repos</NavLink>
     </nav>
+
+    <ToggleDarkMode />
   </div>
 </header>
 
@@ -90,7 +106,7 @@
     </span>
     <span
       ><Icon
-        class="text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 dark:text-green-500"
+        class="inline-block text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 dark:text-green-500"
         name="arrow-right"
       /></span
     >

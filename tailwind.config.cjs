@@ -1,5 +1,6 @@
 module.exports = {
   content: ['./src/**/*.{svelte,ts}', 'src/app.html'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
