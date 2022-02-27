@@ -1,39 +1,53 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit';
   export const load: Load = async ({ fetch }) => {
-    const res = await fetch('/github/profile.json');
-    const profile = await res.json();
+    const res1 = await fetch('/github/profile.json');
+    const githubProfile = await res1.json();
 
-    if (res.ok) {
+    const res2 = await fetch('/profile.json');
+    const profile = await res2.json();
+
+    if (res1.ok && res2.ok) {
       return {
         props: {
+          githubProfile,
           profile,
         },
       };
     }
 
     return {
-      status: res.status,
+      status: !res1.ok ? res1.status : res2.status,
       error: new Error('could not fetch profile'),
     };
   };
 </script>
 
 <script lang="ts">
-  import type { Profile } from '$lib/types/Profile';
+  // Stores and data
+  import { page } from '$app/stores';
   import { github } from '$lib/config/default';
-  import Card from '$lib/components/Card.svelte';
-  import Icon from '$lib/components/Icon.svelte';
-  import ToggleDarkMode from '$lib/components/ToggleDarkMode.svelte';
-  import NavLink from '$lib/components/NavLink.svelte';
+
+  // Assets
   import '$lib/styles/app.css';
   import '@fontsource/inter';
 
-  export let profile: Profile;
+  // Components
+  import Icon from '$lib/components/Icon.svelte';
+  import NavLink from '$lib/components/NavLink.svelte';
+  import ToggleDarkMode from '$lib/components/ToggleDarkMode.svelte';
+  import GithubProfile from '$lib/components/GithubProfile.svelte';
+  import Profile from '$lib/components/Profile.svelte';
 
-  const { avatarUrl, login, bio, name } = profile.viewer;
+  // Props
+  export let githubProfile;
+  export let profile;
+
+  // Settings
+  export const prerender = true;
 </script>
 
+<!-- Setup theme before Svelte loads to prevent flashing theme -->
 <svelte:head>
   <script>
     if (
@@ -68,24 +82,11 @@
 
 <div class="flex flex-1 flex-col gap-5 md:flex-row">
   <aside class="md:w-96">
-    <Card padding="py-4 px-3">
-      <img
-        class="w-28 rounded-full ring-2 ring-neutral-100/70"
-        src={avatarUrl}
-        alt="My Github avatar"
-      />
-      <div class="text-md mt-4 font-bold tracking-wide">
-        {login}<span class="text-pink-600 dark:text-green-500">/</span>{name}
-      </div>
-      <div class="bio leading-5">
-        {bio}
-      </div>
-
-      <a
-        class="mt-3 inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 sm:w-auto sm:text-sm"
-        href={github}>Go to my Github page</a
-      >
-    </Card>
+    {#if $page.url.pathname === '/repos'}
+      <GithubProfile {githubProfile} />
+    {:else}
+      <Profile {profile} />
+    {/if}
   </aside>
   <div class="w-full">
     <main class="mx-auto w-full max-w-2xl">

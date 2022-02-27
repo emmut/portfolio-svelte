@@ -4,18 +4,17 @@
 import 'dotenv/config';
 import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
-import type { EndpointOutput } from '@sveltejs/kit';
+import type { RequestHandler } from '@sveltejs/kit';
 import type { Profile } from '$lib/types/Profile';
 import { endpoint } from '$lib/config/default';
 
-export async function get(): Promise<EndpointOutput> {
+export const get: RequestHandler = async () => {
   const query = gql`
     {
       viewer {
         login
         bio
         avatarUrl
-        name
       }
     }
   `;
@@ -34,4 +33,4 @@ export async function get(): Promise<EndpointOutput> {
       ...data,
     },
   };
-}
+};
