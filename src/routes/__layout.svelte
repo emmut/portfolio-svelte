@@ -95,7 +95,7 @@
   </div>
 </div>
 
-<footer class="pb-6">
+<footer class="mt-8 pb-6">
   <a
     class="group flex cursor-pointer justify-between"
     href={github}

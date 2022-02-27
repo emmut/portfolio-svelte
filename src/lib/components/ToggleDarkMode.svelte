@@ -20,7 +20,7 @@
 </script>
 
 <span
-  class="relative grid h-7 w-7 place-items-center rounded-full bg-pink-600 text-neutral-50 dark:bg-neutral-50 dark:text-gray-800"
+  class="relative grid h-7 w-7 place-items-center rounded-full bg-pink-600 text-neutral-50 dark:bg-neutral-200 dark:text-gray-800"
   on:click={handleToggle}
 >
   {#if $theme === 'light'}
