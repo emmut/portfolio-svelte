@@ -1,8 +1,8 @@
 import { client } from '$lib/sanity';
 import type { Portfolio } from '$lib/types/Portfolio';
-import type { EndpointOutput, RequestEvent } from '@sveltejs/kit';
+import type { RequestHandler } from '@sveltejs/kit';
 
-export async function get({ params }: RequestEvent): Promise<EndpointOutput> {
+export const get: RequestHandler = async ({ params }) => {
   const { slug } = params;
   const query = `*[_type == "portfolio" && slug.current == "${slug}"]{
     slug,
@@ -25,4 +25,4 @@ export async function get({ params }: RequestEvent): Promise<EndpointOutput> {
   return {
     status: 404,
   };
-}
+};

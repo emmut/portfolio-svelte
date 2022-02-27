@@ -1,10 +1,11 @@
 <script lang="ts" context="module">
-  import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+  import type { Load } from '@sveltejs/kit';
+  import type { Portfolio } from '$lib/types/Portfolio';
 
-  export async function load({ fetch, params }: LoadInput): Promise<LoadOutput> {
+  export const load: Load = async ({ fetch, params }) => {
     const { slug } = params;
     const res = await fetch(`/portfolio/${slug}.json`);
-    const { portfolio } = await res.json();
+    const { portfolio }: Record<string, Portfolio> = await res.json();
 
     if (res.ok) {
       return {
@@ -18,12 +19,10 @@
       status: 301,
       redirect: '/stuff',
     };
-  }
+  };
 </script>
 
 <script lang="ts">
-  import type { Portfolio } from '$lib/types/Portfolio';
-
   export let portfolio: Portfolio;
 </script>
 
