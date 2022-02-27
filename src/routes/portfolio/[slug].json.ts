@@ -1,5 +1,4 @@
 import { client } from '$lib/sanity';
-import type { Portfolio } from '$lib/types/Portfolio';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const get: RequestHandler = async ({ params }) => {
@@ -11,7 +10,7 @@ export const get: RequestHandler = async ({ params }) => {
     bio
   }`;
 
-  const [portfolio]: Portfolio[] = await client.fetch(query);
+  const [portfolio] = await client.fetch(query);
 
   if (portfolio) {
     return {
