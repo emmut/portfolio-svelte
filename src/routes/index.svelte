@@ -23,12 +23,10 @@
 <script lang="ts">
   import type { Portfolio } from '$lib/types/Portfolio';
   import { urlFor } from '$lib/sanity';
-  import Toggle from '$lib/components/Toggle.svelte';
 
   export let portfolios: Portfolio[];
 </script>
 
-<Toggle />
 <div class="grid grid-cols-12">
   {#each portfolios as portfolio, i}
     <a
