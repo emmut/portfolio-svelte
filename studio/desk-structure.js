@@ -8,13 +8,17 @@ export default () => {
     .title('Content')
     .items([
       ...S.documentTypeListItems().filter(
-        (item) => !['siteSettings', 'about'].includes(item.getId())
+        (item) => !['siteSettings', 'about', 'profile'].includes(item.getId())
       ),
       S.listItem()
         .title('Me')
         .icon(FiUser)
         .child(S.document().schemaType('about').documentId('about').title('Me')),
       S.divider(),
+      S.listItem()
+        .title('Profile')
+        .icon(FiUser)
+        .child(S.document().schemaType('profile').documentId('profile').title('Profile')),
       S.listItem()
         .title('Settings')
         .icon(BsGear)

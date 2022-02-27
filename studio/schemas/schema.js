@@ -7,6 +7,7 @@ import portfolio from './portfolio';
 import siteSettings from './siteSettings';
 import me from './me';
 import experience from './experience';
+import profile from './profile';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,5 +21,6 @@ export default createSchema({
     siteSettings,
     me,
     experience,
+    profile,
   ]),
 });
