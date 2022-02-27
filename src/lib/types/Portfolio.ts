@@ -1,3 +1,5 @@
+import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
+
 export type Portfolio = {
   _id: number;
   title: string;
@@ -7,4 +9,5 @@ export type Portfolio = {
   };
   image?: string;
   excerpt?: string;
+  bio?: PortableTextBlocks;
 };

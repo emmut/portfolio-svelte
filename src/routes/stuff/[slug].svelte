@@ -23,7 +23,20 @@
 </script>
 
 <script lang="ts">
+  import PortableText from '@portabletext/svelte';
+  import Link from '$lib/components/Link.svelte';
+
   export let portfolio: Portfolio;
 </script>
 
-{portfolio.title}
+<h1 class="mb-9 text-4xl font-bold">{portfolio.title}</h1>
+<div class="prose dark:prose-invert">
+  <PortableText
+    blocks={portfolio.bio}
+    serializers={{
+      marks: {
+        link: Link,
+      },
+    }}
+  />
+</div>
