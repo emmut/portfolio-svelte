@@ -1,25 +1,3 @@
-<script lang="ts" context="module">
-  import type { Load } from '@sveltejs/kit';
-
-  export const load: Load = async ({ fetch }) => {
-    const res = await fetch('/github/repos.json');
-    const repos = await res.json();
-
-    if (res.ok) {
-      return {
-        props: {
-          repos,
-        },
-      };
-    }
-
-    return {
-      status: res.status,
-      error: new Error('a problem fetching repos occured'),
-    };
-  };
-</script>
-
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
   import type { Repos } from '$lib/types/Repos';
