@@ -1,14 +1,7 @@
 import { browser } from '$app/env';
+import type { Theme } from '$lib/types/Theme';
 import { writable } from 'svelte/store';
 
-const initialValue =
-  browser &&
-  (window.localStorage.getItem('theme') ?? window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light');
+const initial: Theme = browser ? (window.localStorage.getItem('theme') as Theme) ?? 'system' : null;
 
-export const theme = writable<string>(initialValue);
-
-theme.subscribe((value) => {
-  browser && window.localStorage.setItem('theme', value);
-});
+export const theme = writable<string>(initial);

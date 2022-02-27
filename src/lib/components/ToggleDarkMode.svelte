@@ -1,21 +1,21 @@
-<script>
+<script lang="ts">
   import { theme } from '$lib/stores/theme';
+  import type { Theme } from '$lib/types/Theme';
+  import { setupTheme } from '$lib/utils';
 
   import Icon from './Icon.svelte';
 
+  let index = setupTheme($theme as Theme);
+
+  const modes = ['light', 'dark', 'system'];
+
   function handleToggle() {
-    $theme = $theme === 'dark' ? 'light' : 'dark';
+    index = index < 2 ? index + 1 : 0;
+
+    $theme = modes[index];
     localStorage.theme = $theme;
 
-    if ($theme === 'light') {
-      document.documentElement.classList.remove('dark');
-    }
-    if ($theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    }
-    if ($theme === 'system') {
-      localStorage.removeItem('theme');
-    }
+    setupTheme($theme as Theme);
   }
 </script>
 
