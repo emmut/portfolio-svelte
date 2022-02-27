@@ -39,7 +39,7 @@
         alt=""
       />
       <div
-        class="h-full bg-gray-800/40 p-4 opacity-0 transition-all duration-500 group-hover:opacity-100 group-focus:opacity-100"
+        class="h-full bg-gray-800/40 p-4 text-neutral-50 opacity-0 transition-all duration-500 group-hover:opacity-100 group-focus:opacity-100"
       >
         <h2 class="text-xl font-bold">{portfolio.title}</h2>
         <p class="text-base line-clamp-5">{portfolio.excerpt}</p>
