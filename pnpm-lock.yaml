@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@fontsource/inter': ^4.5.4
+  '@portabletext/svelte': ^0.2.0
   '@sanity/client': ^2.23.2
   '@sanity/image-url': ^1.0.1
   '@sveltejs/adapter-auto': ^1.0.0-next.29
@@ -43,6 +44,7 @@ dependencies:
   tailwindcss: 3.0.23_autoprefixer@10.4.2
 
 devDependencies:
+  '@portabletext/svelte': 0.2.0_svelte@3.46.4
   '@sveltejs/adapter-auto': 1.0.0-next.29
   '@sveltejs/kit': 1.0.0-next.287_svelte@3.46.4
   '@typescript-eslint/eslint-plugin': 4.33.0_959502c0ea240e86d4d2ba8b8c0fee45
@@ -142,6 +144,14 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+
+  /@portabletext/svelte/0.2.0_svelte@3.46.4:
+    resolution: {integrity: sha512-9CWGM0ud3eyjF01ox8MZVAkv0YUKBtKKok8EpAZpFpFo4RnhCBqfD8GhcsZ6AyYCRcVKreAeba8kU5pk0mo0/Q==}
+    peerDependencies:
+      svelte: ^3.40.0
+    dependencies:
+      svelte: 3.46.4
+    dev: true
 
   /@rexxars/eventsource-polyfill/1.0.0:
     resolution: {integrity: sha512-YnrybIoM9WFqmeK1D8p/gutqjJnmXCVFWAU3ucka9M7Dzpen3f2Dy4KsC6k1wDHrCtHQuUHHwZovh3i5UPDaZw==}
