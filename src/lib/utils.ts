@@ -1,3 +1,4 @@
+import { browser } from '$app/env';
 import type { Theme } from '$lib/types/Theme';
 
 export function mergeClasses(classesA: string, classesB: string): string {
@@ -28,4 +29,12 @@ export function setupTheme(theme: Theme): number {
     }
     return 2;
   }
+}
+
+export function deviceDpr(): number {
+  return browser ? window.devicePixelRatio : 1;
+}
+
+export function minmax<T>(i: number, modulo: number, min: T, max: T): T {
+  return ++i % modulo === 0 ? max : min;
 }
