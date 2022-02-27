@@ -1,4 +1,4 @@
-import { client, urlFor } from '$lib/sanity';
+import { client } from '$lib/sanity';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const get: RequestHandler = async () => {
@@ -10,14 +10,13 @@ export const get: RequestHandler = async () => {
   }`);
 
   const [profile] = data;
+  const { name, avatar, bio } = profile;
 
   return {
     body: {
-      viewer: {
-        name: profile.name,
-        avatarUrl: urlFor(profile.avatar).width(400).url(),
-        bio: profile.bio,
-      },
+      name,
+      avatar,
+      bio,
     },
   };
 };

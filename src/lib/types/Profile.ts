@@ -1,9 +1,7 @@
 export type Profile = {
-  viewer: {
-    avatarUrl: string;
-    bio: string;
-    name: string;
-  };
+  avatar: string;
+  bio: string;
+  name: string;
 };
 
 export type GithubProfile = {

@@ -4,7 +4,7 @@
 
   export let profile: Profile;
 
-  const { avatarUrl, bio, name } = profile.viewer;
+  const { avatar, bio, name } = profile;
 </script>
 
 <Card padding="py-4 px-3">
