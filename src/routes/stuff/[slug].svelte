@@ -35,7 +35,7 @@
   src={portfolio.image}
   alt={portfolio.image.caption}
 />
-<div class="prose dark:prose-invert">
+<div class="prose mx-auto dark:prose-invert">
   <h1 class="text-4xl font-bold">{portfolio.title}</h1>
   <PortableText
     blocks={portfolio.bio}

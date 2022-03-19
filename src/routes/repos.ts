@@ -23,6 +23,7 @@ export const get: RequestHandler = async () => {
               url
               primaryLanguage {
                 name
+                color
               }
             }
           }

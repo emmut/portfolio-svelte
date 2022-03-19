@@ -5,7 +5,7 @@
 
   $: totalClasses = mergeClasses(
     padding,
-    'flex flex-col rounded-md bg-white dark:bg-gray-600 shadow-sm shadow-neutral-300 dark:shadow-gray-900'
+    'flex flex-col rounded-md bg-white dark:bg-gray-600 shadow-sm shadow-neutral-300 dark:shadow-gray-900 shadow'
   );
 </script>
 

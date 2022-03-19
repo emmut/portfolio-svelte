@@ -1,5 +1,6 @@
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
+  import Pill from '$lib/components/Pill.svelte';
   import type { Repos } from '$lib/types/Repos';
 
   export let repos: Repos;
@@ -10,9 +11,10 @@
     <a href={repo.url}>
       <Card>
         <span class="title text-md inline-block font-bold">{repo.nameWithOwner}</span>
-        <span class="inline-block">{repo.description}</span>
+        <span class="inline-block text-sm text-zinc-600 dark:text-zinc-300">{repo.description}</span
+        >
         <div class="flex justify-end">
-          <span class="text-md inline-block font-bold">{repo.primaryLanguage.name}</span>
+          <Pill color={repo.primaryLanguage.color}>{repo.primaryLanguage.name}</Pill>
         </div>
       </Card>
     </a>

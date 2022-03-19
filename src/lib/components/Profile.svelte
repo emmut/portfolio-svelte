@@ -3,6 +3,8 @@
   import { urlFor } from '$lib/sanity';
   import type { Profile } from '$lib/types/Profile';
   import { deviceDpr } from '$lib/utils';
+  import PortableText from '@portabletext/svelte';
+  import Link from './Link.svelte';
 
   export let profile: Profile;
 
@@ -16,9 +18,16 @@
     alt="My Github avatar"
   />
   <div class="text-md mt-4 font-bold tracking-wide">
-    <span class="text-pink-600 dark:text-green-500">/</span>{name}
+    <span class="mr-0.5 text-pink-600 dark:text-green-500">/</span>{name}
   </div>
-  <div class="bio leading-5">
-    {bio}
+  <div class="bio prose mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+    <PortableText
+      blocks={bio}
+      serializers={{
+        marks: {
+          link: Link,
+        },
+      }}
+    />
   </div>
 </Card>

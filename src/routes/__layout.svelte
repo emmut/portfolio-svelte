@@ -68,15 +68,14 @@
     </a>
   </div>
   <div class="flex w-full">
-    <nav
-      class="mx-auto flex w-full max-w-2xl items-center justify-center gap-4 font-semibold md:gap-20"
-    >
-      <NavLink href="/">Stuff</NavLink>
-      <NavLink href="/me">Me</NavLink>
-      <NavLink href="/repos">Repos</NavLink>
-    </nav>
-
-    <ToggleDarkMode />
+    <div class="mx-auto flex w-full max-w-2xl items-center justify-center gap-4">
+      <nav class="flex w-full flex-1 justify-center font-semibold md:gap-20">
+        <NavLink href="/">Stuff</NavLink>
+        <NavLink href="/me">Me</NavLink>
+        <NavLink href="/repos">Repos</NavLink>
+      </nav>
+      <ToggleDarkMode />
+    </div>
   </div>
 </header>
 
@@ -97,7 +96,7 @@
 
 <footer class="mt-8 pb-6">
   <a
-    class="group flex cursor-pointer justify-between"
+    class="group flex cursor-pointer items-center justify-between"
     href={github}
     target="_blank"
     rel="no-referrer no-opener"
@@ -105,11 +104,9 @@
     <span class="inline-block font-semibold dark:text-neutral-200">
       <span class="group-hover:text-pink-600 dark:group-hover:text-green-500">/</span>emmut
     </span>
-    <span
-      ><Icon
-        class="inline-block text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 dark:text-green-500"
-        name="arrow-right"
-      /></span
-    >
+    <Icon
+      class="inline-block h-5 w-5 text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 dark:text-green-500"
+      name="arrow-right"
+    />
   </a>
 </footer>

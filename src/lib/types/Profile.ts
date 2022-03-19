@@ -1,6 +1,8 @@
+import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
+
 export type Profile = {
   avatar: string;
-  bio: string;
+  bio: PortableTextBlocks;
   name: string;
 };
 
