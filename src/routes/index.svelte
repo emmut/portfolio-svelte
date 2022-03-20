@@ -31,6 +31,7 @@
 <div class="grid grid-cols-8 xl:grid-cols-12">
   {#each portfolios as portfolio, i}
     <a
+      sveltekit:prefetch
       class="group relative aspect-1 {minmax(i, 4, 'col-span-4', 'col-span-8')}"
       href="/stuff/{portfolio.slug.current}"
     >
