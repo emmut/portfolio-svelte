@@ -30,7 +30,11 @@
     {/each}
     <img
       class={$$props.class}
-      src={src && urlFor(src).width(sizes.at(-1)).quality(quality).url()}
+      src={src &&
+        urlFor(src)
+          .width(sizes[sizes.length - 1])
+          .quality(quality)
+          .url()}
       alt={$$props.alt}
     />
   </picture>
