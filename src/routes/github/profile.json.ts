@@ -5,7 +5,6 @@ import 'dotenv/config';
 import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
 import type { RequestHandler } from '@sveltejs/kit';
-import type { Profile } from '$lib/types/Profile';
 import { endpoint } from '$lib/config/default';
 
 export const get: RequestHandler = async () => {
@@ -25,12 +24,19 @@ export const get: RequestHandler = async () => {
     },
   });
 
-  const data: Profile = await client.request(query);
+  try {
+    const data = await client.request(query);
 
-  return {
-    status: 200,
-    body: {
-      ...data,
-    },
-  };
+    return {
+      status: 200,
+      body: {
+        ...data,
+      },
+    };
+  } catch (error) {
+    return {
+      status: 502,
+      body: new Error('Bad Gateway'),
+    };
+  }
 };

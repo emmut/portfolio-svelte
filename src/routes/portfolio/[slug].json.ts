@@ -10,18 +10,18 @@ export const get: RequestHandler = async ({ params }) => {
     bio
   }`;
 
-  const [portfolio] = await client.fetch(query);
+  try {
+    const [portfolio] = await client.fetch(query);
 
-  if (portfolio) {
     return {
       status: 200,
       body: {
         portfolio,
       },
     };
+  } catch (error) {
+    return {
+      status: 404,
+    };
   }
-
-  return {
-    status: 404,
-  };
 };

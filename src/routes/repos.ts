@@ -41,12 +41,18 @@ export const get: RequestHandler = async () => {
     },
   });
 
-  const data: Repos = await client.request(query);
+  try {
+    const data: Repos = await client.request(query);
 
-  return {
-    status: 200,
-    body: {
-      repos: data,
-    },
-  };
+    return {
+      status: 200,
+      body: {
+        repos: data,
+      },
+    };
+  } catch (error) {
+    return {
+      status: 502,
+    };
+  }
 };

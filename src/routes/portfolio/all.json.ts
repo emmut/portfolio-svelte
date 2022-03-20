@@ -1,27 +1,24 @@
 import { client } from '$lib/sanity';
-import type { Portfolio } from '$lib/types/Portfolio';
+import type { RequestHandler } from '@sveltejs/kit';
 
-export async function get(): Promise<{
-  status: number;
-  body: Portfolio[] | Error;
-}> {
-  const data: Portfolio[] = await client.fetch(`*[_type == "portfolio"]{
-    _id,
-    image,
-    title,
-    slug,
-    excerpt,
-  }`);
+export const get: RequestHandler = async () => {
+  try {
+    const data = await client.fetch(`*[_type == "portfolio"]{
+      _id,
+      image,
+      title,
+      slug,
+      excerpt,
+    }`);
 
-  if (data) {
     return {
       status: 200,
       body: data,
     };
+  } catch (error) {
+    return {
+      status: 502,
+      body: new Error('Bad Gateway'),
+    };
   }
-
-  return {
-    status: 500,
-    body: new Error('Internal server error'),
-  };
-}
+};
