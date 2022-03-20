@@ -16,7 +16,14 @@ export default {
     {
       name: 'bio',
       title: 'Bio',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          title: 'Block',
+          type: 'block',
+          lists: [],
+        },
+      ],
     },
   ],
 };

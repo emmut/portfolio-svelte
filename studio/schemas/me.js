@@ -4,10 +4,25 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'tools',
-      title: 'Tools',
-      type: 'reference',
-      to: [{ type: 'experience' }],
+      title: 'Image',
+      name: 'image',
+      type: 'image',
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          // Editing this field will be hidden behind an "Edit"-button
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
     },
     {
       name: 'about',
@@ -18,6 +33,19 @@ export default {
           title: 'Block',
           type: 'block',
           lists: [],
+        },
+      ],
+    },
+    {
+      name: 'tools',
+      title: 'Tools',
+      type: 'array',
+      of: [
+        {
+          title: 'Tool',
+          name: 'tool',
+          type: 'reference',
+          to: [{ type: 'experience' }],
         },
       ],
     },
