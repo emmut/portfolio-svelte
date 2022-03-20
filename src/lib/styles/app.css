@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body,
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-neutral-50 
+      font-body 
+      text-base 
+      dark:bg-gray-800 
+      dark:text-neutral-200;
+  }
+
+  .svelte-container {
+    @apply container 
+      mx-auto 
+      flex 
+      min-h-full 
+      flex-col 
+      px-2;
+  }
+}
+
+@layer components {
+  .active {
+    @apply underline 
+      decoration-pink-600 
+      decoration-2
+      underline-offset-[3px] 
+      dark:decoration-green-500;
+  }
+}

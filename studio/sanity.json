@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "yt6znvr8",
-    "dataset": "production"
+    "projectId": "ql7rbeue",
+    "dataset": "development"
   },
   "project": {
-    "name": "portfolio"
+    "name": "emmut"
   },
   "plugins": [
     "@sanity/base",
@@ -13,7 +13,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "asset-source-unsplash",
-    "@sanity/form-builder"
+    "@sanity/form-builder",
+    "vercel-deploy"
   ],
   "env": {
     "development": {
@@ -26,6 +27,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./desk-structure.js"
     }
   ]
 }
