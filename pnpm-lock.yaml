@@ -15,10 +15,10 @@ specifiers:
   autoprefixer: ^10.4.4
   dotenv: ^16.0.0
   eslint: ^7.32.0
-  eslint-config-prettier: ^8.4.0
+  eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^3.4.1
   graphql: ^16.3.0
-  graphql-request: ^4.0.0
+  graphql-request: ^4.1.0
   postcss: ^8.4.7
   prettier: ^2.5.1
   prettier-plugin-tailwindcss: ^0.1.8
@@ -39,7 +39,7 @@ dependencies:
   autoprefixer: 10.4.4_postcss@8.4.7
   dotenv: 16.0.0
   graphql: 16.3.0
-  graphql-request: 4.0.0_graphql@16.3.0
+  graphql-request: 4.1.0_graphql@16.3.0
   postcss: 8.4.7
   tailwindcss: 3.0.23_autoprefixer@10.4.4
 
@@ -50,7 +50,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 4.33.0_959502c0ea240e86d4d2ba8b8c0fee45
   '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.5.5
   eslint: 7.32.0
-  eslint-config-prettier: 8.4.0_eslint@7.32.0
+  eslint-config-prettier: 8.5.0_eslint@7.32.0
   eslint-plugin-svelte3: 3.4.1_eslint@7.32.0+svelte@3.46.4
   prettier: 2.5.1
   prettier-plugin-tailwindcss: 0.1.8_prettier@2.5.1
@@ -1045,8 +1045,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-prettier/8.4.0_eslint@7.32.0:
-    resolution: {integrity: sha512-CFotdUcMY18nGRo5KGsnNxpznzhkopOcOo0InID+sgQssPrzjvsyKZPvOgymTFeHrFuC3Tzdf2YndhXtULK9Iw==}
+  /eslint-config-prettier/8.5.0_eslint@7.32.0:
+    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -1394,8 +1394,8 @@ packages:
     resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==}
     dev: true
 
-  /graphql-request/4.0.0_graphql@16.3.0:
-    resolution: {integrity: sha512-cdqQLCXlBGkaLdkLYRl4LtkwaZU6TfpE7/tnUQFl3wXfUPWN74Ov+Q61VuIh+AltS789YfGB6whghmCmeXLvTw==}
+  /graphql-request/4.1.0_graphql@16.3.0:
+    resolution: {integrity: sha512-CBFcO6LP7cg+aBMc+x9C1dZEQsKTBZKR2J+HzuB0cR/6aaU4K4/tRXTQu8CDMp5195ZU+DTNKZZOSK1WRbTeAg==}
     peerDependencies:
       graphql: 14 - 16
     dependencies:
