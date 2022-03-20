@@ -13,7 +13,7 @@
 
 <Card padding="py-4 px-3">
   <img
-    class="w-28 rounded-full ring-2 ring-neutral-100/70"
+    class="h-28 w-28 rounded-full ring-2 ring-neutral-100/70"
     src={urlFor(avatar).width(400).dpr(deviceDpr()).auto('format').url()}
     alt="My Github avatar"
   />
