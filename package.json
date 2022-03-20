@@ -30,7 +30,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@fontsource/inter": "^4.5.4",
+    "@fontsource/inter": "^4.5.5",
     "@sanity/client": "^2.23.2",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
