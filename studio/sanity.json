@@ -5,7 +5,7 @@
     "dataset": "development"
   },
   "project": {
-    "name": "portfolio"
+    "name": "emmut"
   },
   "plugins": [
     "@sanity/base",
@@ -13,11 +13,14 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "asset-source-unsplash",
-    "@sanity/form-builder"
+    "@sanity/form-builder",
+    "vercel-deploy"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [
