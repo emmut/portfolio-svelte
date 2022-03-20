@@ -28,7 +28,7 @@
   export let portfolios: Portfolio[];
 </script>
 
-<div class="grid grid-cols-12">
+<div class="grid grid-cols-8 xl:grid-cols-12">
   {#each portfolios as portfolio, i}
     <a
       class="group relative aspect-1 {minmax(i, 4, 'col-span-4', 'col-span-8')}"
