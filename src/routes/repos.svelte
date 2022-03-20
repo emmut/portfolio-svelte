@@ -1,3 +1,7 @@
+<script context="module">
+  export const prerender = false;
+</script>
+
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
   import Pill from '$lib/components/Pill.svelte';
@@ -14,7 +18,7 @@
         <span class="inline-block text-sm text-zinc-600 dark:text-zinc-300">{repo.description}</span
         >
         <div class="flex justify-end">
-          <Pill color={repo.primaryLanguage.color}>{repo.primaryLanguage.name}</Pill>
+          <Pill class="mb-1" color={repo.primaryLanguage.color}>{repo.primaryLanguage.name}</Pill>
         </div>
       </Card>
     </a>
