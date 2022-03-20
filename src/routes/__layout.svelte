@@ -79,7 +79,11 @@
   </div>
 </header>
 
-<div class="flex flex-1 flex-col gap-5 md:flex-row">
+<div
+  class="{$page.url.pathname !== '/' && $page.url.pathname !== '/repos'
+    ? 'flex-col-reverse'
+    : ''} flex flex-1 flex-col gap-5 md:flex-row"
+>
   <aside class="md:w-96">
     {#if $page.url.pathname === '/repos'}
       <GithubProfile {githubProfile} />
