@@ -28,7 +28,7 @@
   export let portfolios: Portfolio[];
 </script>
 
-<div class="grid grid-cols-8 xl:grid-cols-12">
+<div class="grid grid-cols-8 lg:grid-cols-12">
   {#each portfolios as portfolio, i}
     <a
       sveltekit:prefetch

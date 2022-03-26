@@ -70,9 +70,9 @@
   <div class="flex w-full">
     <div class="mx-auto flex w-full max-w-2xl items-center justify-center gap-4">
       <nav class="flex w-full flex-1 justify-center gap-6 font-semibold md:gap-20">
-        <NavLink href="/">Stuff</NavLink>
-        <NavLink href="/me">Me</NavLink>
-        <NavLink href="/repos">Repos</NavLink>
+        <NavLink sveltekit:prefetch href="/">Stuff</NavLink>
+        <NavLink sveltekit:prefetch href="/me">Me</NavLink>
+        <NavLink sveltekit:prefetch href="/repos">Repos</NavLink>
       </nav>
       <ToggleDarkMode />
     </div>
