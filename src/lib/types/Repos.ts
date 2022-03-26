@@ -15,3 +15,5 @@ export type Repo = {
     color: string;
   };
 };
+
+export type RepoStore = Promise<Repo[]> | [];
