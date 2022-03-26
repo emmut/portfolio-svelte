@@ -5,7 +5,7 @@
 @layer base {
   body,
   html {
-    @apply h-full;
+    @apply h-[calc(100%+2rem)];
   }
 
   body {
