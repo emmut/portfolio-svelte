@@ -39,7 +39,7 @@
 <div class="flex flex-col gap-3">
   {#await $repos}
     {#each Array(6) as _}
-      <Card padding="px-3 py-2">
+      <Card padding="px-3 pt-[.7rem] pb-[.55rem]">
         <span
           class="skeleton-box title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 rounded-sm bg-gray-500 font-bold"
         />
