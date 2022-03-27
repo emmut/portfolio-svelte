@@ -28,6 +28,10 @@
   export let portfolios: Portfolio[];
 </script>
 
+<svelte:head>
+  <title>Stuff /emmut</title>
+</svelte:head>
+
 <div class="grid grid-cols-8 lg:grid-cols-12">
   {#each portfolios as portfolio, i}
     <a

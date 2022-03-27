@@ -36,6 +36,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Repos /emmut</title>
+</svelte:head>
+
 <div class="flex flex-col gap-3">
   {#await $repos}
     {#each Array(6) as _}

@@ -3,11 +3,17 @@
   import Link from '$lib/components/Link.svelte';
   import Image from '$lib/components/SanityImage.svelte';
   import Card from '$lib/components/Card.svelte';
+  import { toPlainText } from '$lib/utils';
 
   export let about;
   export let image;
   export let tools;
 </script>
+
+<svelte:head>
+  <title>Me /emmut</title>
+  <meta name="description" content="{toPlainText(about).substring(0, 120)}..." />
+</svelte:head>
 
 <Image
   class="mb-6 w-full xl:-ml-8 xl:w-[calc(100%+4rem)] xl:min-w-[calc(100%+4rem)]"
