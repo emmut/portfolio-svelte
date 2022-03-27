@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = false;
-</script>
-
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
   import Pill from '$lib/components/Pill.svelte';
