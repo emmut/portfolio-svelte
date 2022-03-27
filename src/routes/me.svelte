@@ -19,6 +19,8 @@
   class="mb-6 w-full xl:-ml-8 xl:w-[calc(100%+4rem)] xl:min-w-[calc(100%+4rem)]"
   src={image}
   alt={image.caption}
+  width="1000"
+  height="750"
 />
 
 <div class="prose mx-auto dark:prose-invert">
@@ -39,7 +41,7 @@
           class="not-prose flex flex-col gap-2 sm:flex-row {i % 2 === 0 ? '' : 'flex-row-reverse'}"
         >
           <div class="w-24">
-            <Image src={tool.image} alt={tool.image.caption ?? ''} />
+            <Image src={tool.image} alt={tool.image.caption ?? ''} width="96" height="96" />
           </div>
           <div class="flex flex-1 flex-col">
             <h2 class="text-md text-xl font-bold">{tool.title}</h2>
