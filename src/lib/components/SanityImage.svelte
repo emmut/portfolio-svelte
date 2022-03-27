@@ -36,6 +36,8 @@
           .quality(quality)
           .url()}
       alt={$$props.alt}
+      width={$$props.width}
+      height={$$props.height}
     />
   </picture>
 {/if}
