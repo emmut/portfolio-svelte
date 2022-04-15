@@ -39,15 +39,15 @@
 <div class="flex flex-col gap-3">
   {#await $repos}
     {#each Array(6) as _}
-      <Card padding="px-3 pt-[.7rem] pb-[.55rem]">
+      <Card padding="px-3 py-[7px]">
         <span
-          class="skeleton-box title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 rounded-sm bg-gray-500 font-bold"
+          class="animate-pulse title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 rounded-sm bg-gray-500 font-bold"
         />
         <span
-          class="skeleton-box mb-1 inline-block h-3 w-4/12 rounded-sm bg-gray-500 text-sm text-zinc-600 dark:text-zinc-300"
+          class="animate-pulse mb-1 inline-block h-3 w-4/12 rounded-sm bg-gray-500 text-sm text-zinc-600 dark:text-zinc-300"
         />
         <div class="flex justify-end">
-          <div class="skeleton-box h-5 w-16 rounded-full bg-gray-500" />
+          <div class="animate-pulse h-5 w-16 rounded-full bg-gray-500" />
         </div>
       </Card>
     {/each}
@@ -65,32 +65,8 @@
         </Card>
       </a>
     {/each}
-  {:catch error}
+  {:catch}
     <!-- promise was rejected -->
     <p class="text-center">Could not fetch repos. Try again later.</p>
   {/await}
 </div>
-
-<style lang="postcss">
-  .skeleton-box {
-    @apply relative overflow-hidden;
-
-    &::after {
-      @apply absolute inset-0 translate-x-[-100%] content-[''];
-      background-image: linear-gradient(
-        90deg,
-        rgba(150, 150, 150, 0) 0,
-        rgba(150, 150, 150, 0.2) 20%,
-        rgba(150, 150, 150, 0.5) 60%,
-        rgba(150, 150, 150, 0)
-      );
-      animation: shimmer 1200ms infinite;
-    }
-  }
-
-  @keyframes shimmer {
-    100% {
-      @apply translate-x-[100%];
-    }
-  }
-</style>
