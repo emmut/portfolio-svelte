@@ -38,10 +38,13 @@
   import ToggleDarkMode from '$lib/components/ToggleDarkMode.svelte';
   import GithubProfile from '$lib/components/GithubProfile.svelte';
   import Profile from '$lib/components/Profile.svelte';
-
+  import type {
+    GithubProfile as GithubProfileType,
+    Profile as ProfileType,
+  } from '$lib/types/Profile';
   // Props
-  export let githubProfile;
-  export let profile;
+  export let githubProfile: GithubProfileType;
+  export let profile: ProfileType;
 
   // Settings
   export const prerender = true;

@@ -1,5 +1,6 @@
 import { browser } from '$app/env';
 import type { Theme } from '$lib/types/Theme';
+import type { BlockChild, BlockSpan, PortableTextBlocks } from '@portabletext/svelte/ptTypes';
 import type { HSLObject } from './types/Color';
 
 export function mergeClasses(classesA: string, classesB: string): string {
@@ -69,8 +70,8 @@ export function hexToHsl(hex: string): HSLObject {
 
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
-  let h;
-  let s;
+  let h: number;
+  let s: number;
   let l = (max + min) / 2;
 
   if (max === min) {
@@ -106,13 +107,13 @@ export function hexToHsl(hex: string): HSLObject {
 }
 
 // PortableText block to plain text
-export function toPlainText(blocks) {
+export function toPlainText(blocks: PortableTextBlocks): string {
   return blocks
     .map((block) => {
       if (block._type !== 'block' || !block.children) {
         return '';
       }
-      return block.children.map((child) => child.text).join('');
+      return (block.children as (BlockChild & BlockSpan)[]).map((child) => child.text).join('');
     })
     .join('\n\n');
 }

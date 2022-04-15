@@ -4,9 +4,11 @@
   import Image from '$lib/components/SanityImage.svelte';
   import Card from '$lib/components/Card.svelte';
   import { toPlainText } from '$lib/utils';
+  import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
+  import type { SanityImageWithAssetStub } from '@sanity/image-url/lib/types/types';
 
-  export let about;
-  export let image;
+  export let about: PortableTextBlocks;
+  export let image: SanityImageWithAssetStub;
   export let tools;
 </script>
 
