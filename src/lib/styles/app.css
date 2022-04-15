@@ -22,7 +22,8 @@
       flex 
       min-h-full 
       flex-col 
-      px-2;
+      px-2
+      md:px-4;
   }
 }
 

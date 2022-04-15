@@ -64,7 +64,7 @@
   </script>
 </svelte:head>
 
-<header class="flex items-center gap-5 py-10">
+<header class="mx-auto flex w-full items-center gap-5 py-10">
   <div class="md:w-96">
     <a class="text-3xl" href="/">
       <span class="text-pink-600 dark:text-green-500">/</span>emmut
@@ -83,9 +83,10 @@
 </header>
 
 <div
-  class="{$page.url.pathname !== '/' && $page.url.pathname !== '/repos'
-    ? 'flex-col-reverse'
-    : ''} flex flex-1 flex-col gap-5 md:flex-row"
+  class="mx-auto flex w-full flex-1 flex-col gap-5 md:flex-row{$page.url.pathname !== '/' &&
+  $page.url.pathname !== '/repos'
+    ? ' flex-col-reverse'
+    : ''}"
 >
   <aside class="md:w-96">
     {#if $page.url.pathname === '/repos'}
@@ -101,7 +102,7 @@
   </div>
 </div>
 
-<footer class="mt-8 pb-6">
+<footer class="mx-auto mt-8 w-full pb-6">
   <a
     class="group flex cursor-pointer items-center justify-between"
     href={github}

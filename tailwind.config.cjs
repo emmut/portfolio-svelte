@@ -2,6 +2,12 @@ module.exports = {
   content: ['./src/**/*.{svelte,ts}', 'src/app.html'],
   darkMode: 'class',
   theme: {
+    screens: {
+      sm: '500px',
+      md: '750px',
+      lg: '1000px',
+      xl: '1250px',
+    },
     extend: {
       fontFamily: {
         body: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
