@@ -42,7 +42,7 @@
   </div>
 
   <div class="info-icon" tabindex="0" on:click={focusOnPortfolio}>
-    <Icon name="info" />
+    <Icon name="info" class="h-4 w-4" />
   </div>
 </a>
 
