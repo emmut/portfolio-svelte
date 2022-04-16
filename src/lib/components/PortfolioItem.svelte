@@ -5,9 +5,9 @@
   import Icon from './Icon.svelte';
 
   export let portfolio: Portfolio;
-  export let index;
+  export let index: number;
 
-  function focusOnPortfolio(event) {
+  function focusOnPortfolio(event: MouseEvent) {
     event.preventDefault();
     const portfolio = document.querySelector<HTMLDivElement>(`#portfolio-${index}`);
     portfolio?.focus();

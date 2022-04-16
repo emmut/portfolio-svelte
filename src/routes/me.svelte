@@ -5,11 +5,12 @@
   import Card from '$lib/components/Card.svelte';
   import { toPlainText } from '$lib/utils';
   import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
-  import type { SanityImageWithAssetStub } from '@sanity/image-url/lib/types/types';
+  import type { SanityImageAssetDocument } from '@sanity/client';
+  import type { Tool } from '$lib/types/Tool';
 
   export let about: PortableTextBlocks;
-  export let image: SanityImageWithAssetStub;
-  export let tools;
+  export let image: SanityImageAssetDocument;
+  export let tools: Tool[];
 </script>
 
 <svelte:head>
