@@ -3,18 +3,36 @@
   import { urlFor } from '$lib/sanity';
   import { deviceDpr, minmax } from '$lib/utils';
   import Icon from './Icon.svelte';
+  import { onDestroy } from 'svelte';
+  import { browser } from '$app/env';
 
   export let portfolio: Portfolio;
   export let index: number;
 
-  function focusOnPortfolio(event: MouseEvent) {
-    event.preventDefault();
-    const portfolio = document.querySelector<HTMLDivElement>(`#portfolio-${index}`);
-    portfolio?.focus();
+  export let open = false;
+
+  let portfolioElement: HTMLAnchorElement;
+
+  function handleClickOutside(event: MouseEvent) {
+    if (!portfolioElement.contains(event.target as HTMLElement)) {
+      open = false;
+      document.removeEventListener('click', handleClickOutside);
+    }
   }
+
+  function handleClick() {
+    open = !open;
+    portfolioElement.focus();
+    document.addEventListener('click', handleClickOutside);
+  }
+
+  onDestroy(() => {
+    browser && document.removeEventListener('click', handleClickOutside);
+  });
 </script>
 
 <a
+  bind:this={portfolioElement}
   id="portfolio-{index}"
   sveltekit:prefetch
   class="group relative aspect-1 {minmax(index, 4, 'col-span-4', 'col-span-8')}"
@@ -35,13 +53,15 @@
     />
   {/if}
   <div
-    class="h-full bg-gray-800/40 p-4 text-neutral-50 opacity-0 transition-all duration-500 group-focus:opacity-100"
+    class="{open
+      ? 'opacity-100 '
+      : ''} h-full bg-gray-800/40 p-4 text-neutral-50 opacity-0 transition-all duration-500"
   >
     <h2 class="text-xl font-bold">{portfolio.title}</h2>
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
 
-  <div class="info-icon" tabindex="0" on:click={focusOnPortfolio}>
+  <div class="info-icon" tabindex="0" on:click|preventDefault={handleClick}>
     <Icon name="info" class="h-4 w-4" />
   </div>
 </a>
@@ -52,6 +72,7 @@
     @apply absolute 
       top-2 
       right-2;
+
     /* Layout */
     @apply flex 
       h-6 
@@ -59,14 +80,17 @@
       items-center 
       justify-center
       p-1;
+
     /* Appearance */
     @apply cursor-pointer 
       rounded-full 
       bg-neutral-200 
       font-bold 
       text-gray-900;
+
     /* Hover */
     @apply hover:bg-neutral-100;
+
     /* Focus */
     @apply focus:bg-neutral-100 
       focus:ring-2;
