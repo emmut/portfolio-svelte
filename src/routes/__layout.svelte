@@ -48,7 +48,7 @@
   export let profile: ProfileType;
 
   const icons = {
-    dark: '/static/favicon-dark.png',
+    dark: '/static/favicon.png',
     light: '/static/favicon-light.png',
   };
 
