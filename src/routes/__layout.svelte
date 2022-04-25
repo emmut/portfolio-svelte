@@ -46,6 +46,11 @@
   export let githubProfile: GithubProfileType;
   export let profile: ProfileType;
 
+  const icons = {
+    dark: '/static/favicon-dark-mode.png',
+    light: '/static/favicon-light-mode.png',
+  };
+
   // Settings
   export const prerender = true;
 </script>
@@ -62,6 +67,7 @@
       document.documentElement.classList.remove('dark');
     }
   </script>
+  <link rel="shortcut icon" href={icons.dark} type="image/x-icon" />
 </svelte:head>
 
 <header class="mx-auto flex w-full items-center gap-5 py-10">
