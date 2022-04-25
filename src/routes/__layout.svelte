@@ -42,13 +42,14 @@
     GithubProfile as GithubProfileType,
     Profile as ProfileType,
   } from '$lib/types/Profile';
+
   // Props
   export let githubProfile: GithubProfileType;
   export let profile: ProfileType;
 
   const icons = {
-    dark: '/static/favicon-dark-mode.png',
-    light: '/static/favicon-light-mode.png',
+    dark: '/static/favicon-dark.png',
+    light: '/static/favicon-light.png',
   };
 
   // Settings
