@@ -7,7 +7,8 @@
 
   let index = setupTheme($theme as Theme);
 
-  const modes = ['light', 'dark', 'system'];
+  /** @todo make this into a enum */
+  const modes: Theme[] = ['light', 'dark', 'system'];
 
   function handleToggle() {
     index = index < 2 ? index + 1 : 0;
