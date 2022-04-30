@@ -9,7 +9,11 @@
   export let portfolio: Portfolio;
   export let index: number;
 
-  export let open = false;
+  let open = false;
+
+  $: card =
+    (open ? 'opacity-1' : 'opacity-0') +
+    ' h-full bg-gray-800/40 p-4 text-neutral-50 transition-all duration-500';
 
   let portfolioElement: HTMLAnchorElement;
 
@@ -52,11 +56,7 @@
       alt={portfolio.image.caption}
     />
   {/if}
-  <div
-    class="{open
-      ? 'opacity-100 '
-      : ''} h-full bg-gray-800/40 p-4 text-neutral-50 opacity-0 transition-all duration-500"
-  >
+  <div class={card}>
     <h2 class="text-xl font-bold">{portfolio.title}</h2>
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
