@@ -70,7 +70,7 @@
   </script>
 </svelte:head>
 
-<header class="mx-auto flex w-full items-center gap-5 py-10">
+<header class="mx-auto flex w-full items-center gap-5 py-6 md:py-10">
   <div class="md:w-96">
     <a class="text-3xl" href="/">
       <span class="text-pink-600 dark:text-green-500">/</span>emmut
