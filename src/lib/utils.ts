@@ -1,4 +1,4 @@
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 import type { Theme } from '$lib/types/Theme';
 import type { BlockChild, BlockSpan, PortableTextBlocks } from '@portabletext/svelte/ptTypes';
 import type { HSLObject } from './types/Color';

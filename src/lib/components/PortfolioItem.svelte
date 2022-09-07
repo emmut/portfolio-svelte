@@ -4,7 +4,7 @@
   import { deviceDpr, minmax } from '$lib/utils';
   import Icon from './Icon.svelte';
   import { onDestroy } from 'svelte';
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
 
   export let portfolio: Portfolio;
   export let index: number;

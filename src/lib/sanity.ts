@@ -1,4 +1,4 @@
-import { dev } from '$app/env';
+import { dev } from '$app/environment';
 
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
