@@ -47,10 +47,10 @@
   export let githubProfile: GithubProfileType;
   export let profile: ProfileType;
 
-  const icons = {
-    dark: '/static/favicon.png',
-    light: '/static/favicon-light.png',
-  };
+  // const icons = {
+  //   dark: '/static/favicon.png',
+  //   light: '/static/favicon-light.png',
+  // };
 
   // Settings
   export const prerender = true;
@@ -83,6 +83,7 @@
         <NavLink sveltekit:prefetch href="/me">Me</NavLink>
         <NavLink sveltekit:prefetch href="/repos">Repos</NavLink>
       </nav>
+
       <ToggleDarkMode />
     </div>
   </div>
@@ -118,6 +119,7 @@
     <span class="inline-block font-semibold dark:text-neutral-200">
       <span class="group-hover:text-pink-600 dark:group-hover:text-green-500">/</span>emmut
     </span>
+
     <Icon
       class="inline-block h-5 w-5 text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 dark:text-green-500"
       name="arrow-right"
