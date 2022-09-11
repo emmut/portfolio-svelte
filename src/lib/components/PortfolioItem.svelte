@@ -38,9 +38,9 @@
 <a
   bind:this={portfolioElement}
   id="portfolio-{index}"
-  sveltekit:prefetch
   class="group relative aspect-1 {minmax(index, 4, 'col-span-4', 'col-span-8')}"
   href="/stuff/{portfolio.slug.current}"
+  data-sveltekit-prefetch
 >
   {#if portfolio.image}
     <img

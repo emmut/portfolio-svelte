@@ -1,33 +1,12 @@
-<script lang="ts" context="module">
-  import type { Load } from '@sveltejs/kit';
-  import type { Portfolio } from '$lib/types/Portfolio';
-
-  export const load: Load = async ({ fetch, params }) => {
-    const { slug } = params;
-    const res = await fetch(`/portfolio/${slug}.json`);
-    const { portfolio }: Record<string, Portfolio> = await res.json();
-
-    if (res.ok) {
-      return {
-        props: {
-          portfolio,
-        },
-      };
-    }
-
-    return {
-      status: 301,
-      redirect: '/stuff',
-    };
-  };
-</script>
-
 <script lang="ts">
   import PortableText from '@portabletext/svelte';
   import Link from '$lib/components/Link.svelte';
   import Image from '$lib/components/SanityImage.svelte';
+  import type { Portfolio } from '$lib/types/Portfolio';
 
-  export let portfolio: Portfolio;
+  // export let portfolio: Portfolio;
+  export let data;
+  const { portfolio } = data;
 </script>
 
 <svelte:head>

@@ -28,9 +28,7 @@ export const GET: RequestHandler = async () => {
   try {
     const data = await client.request(query);
 
-    return json({
-      data,
-    });
+    return json(data);
   } catch (e) {
     throw error(502, 'Bad Gateway');
   }

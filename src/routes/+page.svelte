@@ -3,7 +3,7 @@
   import PortfolioItem from '$lib/components/PortfolioItem.svelte';
 
   export let data;
-  const { portfolios }: Portfolio[] = data;
+  const { portfolios }: { portfolios: Portfolio[] } = data;
 </script>
 
 <svelte:head>

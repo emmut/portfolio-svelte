@@ -4,11 +4,11 @@
 import 'dotenv/config';
 import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
-import type { RequestHandler } from '@sveltejs/kit';
 import type { Repos } from '$lib/types/Repos';
 import { endpoint } from '$lib/config/default';
+import { json } from '@sveltejs/kit';
 
-export const get: RequestHandler = async () => {
+export const GET = async () => {
   const query = gql`
     {
       viewer {
@@ -44,15 +44,8 @@ export const get: RequestHandler = async () => {
   try {
     const data: Repos = await client.request(query);
 
-    return {
-      status: 200,
-      body: {
-        repos: data,
-      },
-    };
+    return json(data);
   } catch (error) {
-    return {
-      status: 502,
-    };
+    throw error(502, 'Invalid response from Github');
   }
 };

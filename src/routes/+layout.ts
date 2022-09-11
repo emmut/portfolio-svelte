@@ -1,8 +1,8 @@
-import type { Load } from './$types';
+import type { LayoutLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
 // FIXME: Type this correctly
-export const load = async ({ fetch }): Load => {
+export const load: LayoutLoad = async ({ fetch }) => {
   const res1 = await fetch('/github/profile');
   const githubProfile = await res1.json();
   const res2 = await fetch('/profile');

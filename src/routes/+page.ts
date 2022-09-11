@@ -1,8 +1,9 @@
-import type { Load } from './$types';
+import type { PageLoad } from './$types';
 
-export const load: Load = async ({ fetch }) => {
+export const load: PageLoad = async ({ fetch }) => {
   const res = await fetch('/portfolios');
   const portfolios = await res.json();
+
   if (res.ok) {
     return {
       portfolios,

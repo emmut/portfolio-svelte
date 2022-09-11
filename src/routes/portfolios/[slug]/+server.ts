@@ -1,7 +1,9 @@
+import type { Portfolio } from '$lib/types/Portfolio';
+import type { RequestHandler } from './$types';
+import { error, json } from '@sveltejs/kit';
 import { client } from '$lib/sanity';
-import type { RequestHandler } from '@sveltejs/kit';
 
-export const get: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params }) => {
   const { slug } = params;
   const query = `*[_type == "portfolio" && slug.current == "${slug}"]{
     slug,
@@ -11,17 +13,9 @@ export const get: RequestHandler = async ({ params }) => {
   }`;
 
   try {
-    const [portfolio] = await client.fetch(query);
-
-    return {
-      status: 200,
-      body: {
-        portfolio,
-      },
-    };
-  } catch (error) {
-    return {
-      status: 404,
-    };
+    const [portfolio]: Portfolio[] = await client.fetch(query);
+    return json(portfolio);
+  } catch (e) {
+    throw error(404, 'Portfolio not found');
   }
 };

@@ -14,10 +14,10 @@
         return JSON.parse(prevRepos);
       }
 
-      const response = await fetch('/github/repos.json');
+      const response = await fetch('/github/repos');
       const json = await response.json();
 
-      const repos = json.repos.viewer.pinnedItems.nodes;
+      const repos = json.viewer.pinnedItems.nodes;
       sessionStorage.setItem(githubSessionKey, JSON.stringify(repos));
 
       return repos;
