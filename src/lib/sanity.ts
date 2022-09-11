@@ -5,7 +5,8 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import imageUrlBuilder from '@sanity/image-url';
 
 import createClient from '@sanity/client';
-import { api } from '../../studio/sanity.json';
+import { api } from '@studio/sanity.json';
+
 const { projectId, dataset } = api;
 
 const config = {

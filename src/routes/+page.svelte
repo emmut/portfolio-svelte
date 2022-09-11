@@ -1,30 +1,9 @@
-<script lang="ts" context="module">
-  import type { Load } from '@sveltejs/kit';
-
-  export const load: Load = async ({ fetch }) => {
-    const res = await fetch('/portfolio/all.json');
-    const portfolios = await res.json();
-
-    if (res.ok) {
-      return {
-        props: {
-          portfolios,
-        },
-      };
-    }
-
-    return {
-      status: res.status,
-      error: new Error('could not get portfolios'),
-    };
-  };
-</script>
-
 <script lang="ts">
   import type { Portfolio } from '$lib/types/Portfolio';
   import PortfolioItem from '$lib/components/PortfolioItem.svelte';
 
-  export let portfolios: Portfolio[];
+  export let data;
+  const { portfolios }: Portfolio[] = data;
 </script>
 
 <svelte:head>

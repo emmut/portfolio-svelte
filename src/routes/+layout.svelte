@@ -1,28 +1,3 @@
-<script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
-  export const load: Load = async ({ fetch }) => {
-    const res1 = await fetch('/github/profile.json');
-    const githubProfile = await res1.json();
-
-    const res2 = await fetch('/profile.json');
-    const profile = await res2.json();
-
-    if (res1.ok && res2.ok) {
-      return {
-        props: {
-          githubProfile,
-          profile,
-        },
-      };
-    }
-
-    return {
-      status: !res1.ok ? res1.status : res2.status,
-      error: new Error('could not fetch profile'),
-    };
-  };
-</script>
-
 <script lang="ts">
   // Stores and data
   import { page } from '$app/stores';
@@ -44,8 +19,11 @@
   } from '$lib/types/Profile';
 
   // Props
-  export let githubProfile: GithubProfileType;
-  export let profile: ProfileType;
+  export let data;
+
+  // TODO: Clean this up
+  const { githubProfile, profile }: { githubProfile: GithubProfileType; profile: ProfileType } =
+    data;
 
   // const icons = {
   //   dark: '/static/favicon.png',
