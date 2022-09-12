@@ -42,7 +42,7 @@
     {#each tools as tool, i}
       <Card padding="px-3 py-4">
         <div
-          class="not-prose flex flex-col gap-2 sm:flex-row {i % 2 === 0 ? '' : 'flex-row-reverse'}"
+          class="not-prose flex flex-col gap-4 sm:flex-row {i % 2 === 0 ? '' : 'flex-row-reverse'}"
         >
           <div class="w-24">
             <Image src={tool.image} alt={tool.image.caption ?? ''} width="96" height="96" />
