@@ -17,7 +17,9 @@
   <div class="text-md mt-4 font-bold tracking-wide">
     <span class="text-pink-600 dark:text-green-500">/</span>{login}
   </div>
-  <div class="bio prose my-2 text-sm text-zinc-600 dark:text-zinc-300">
+  <div
+    class="bio prose my-2 text-sm text-zinc-600 dark:text-zinc-300 dark:prose-strong:text-zinc-200"
+  >
     {bio}
   </div>
 
