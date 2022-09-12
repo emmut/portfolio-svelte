@@ -1,14 +1,16 @@
 /** @see https://www.npmjs.com/package/graphql-request */
 /** @see https://docs.github.com/en/graphql */
 
+import type { RequestHandler } from './$types';
+import type { Repos } from '$lib/types/Repos';
+
 import 'dotenv/config';
 import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
-import type { Repos } from '$lib/types/Repos';
 import { endpoint } from '$lib/config/default';
 import { json } from '@sveltejs/kit';
 
-export const GET = async () => {
+export const GET: RequestHandler = async () => {
   const query = gql`
     {
       viewer {
