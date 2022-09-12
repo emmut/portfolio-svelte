@@ -22,9 +22,8 @@
   // Props
   export let data;
 
-  // TODO: Clean this up
-  const { githubProfile, profile }: { githubProfile: GithubProfileType; profile: ProfileType } =
-    data;
+  const githubProfile: GithubProfileType = data.githubProfile;
+  const profile: ProfileType = data.profile;
 
   // const icons = {
   //   dark: '/static/favicon.png',
