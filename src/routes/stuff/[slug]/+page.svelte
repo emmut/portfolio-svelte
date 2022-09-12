@@ -1,12 +1,11 @@
 <script lang="ts">
   import PortableText from '@portabletext/svelte';
+  import type { Portfolio } from '$lib/types/Portfolio';
   import Link from '$lib/components/Link.svelte';
   import Image from '$lib/components/SanityImage.svelte';
-  import type { Portfolio } from '$lib/types/Portfolio';
 
-  // export let portfolio: Portfolio;
   export let data;
-  const { portfolio } = data;
+  const portfolio: Portfolio = data.portfolio;
 </script>
 
 <svelte:head>

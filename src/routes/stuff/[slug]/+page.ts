@@ -4,7 +4,7 @@ import { redirect } from '@sveltejs/kit';
 
 export const load: PageLoad = async ({ fetch, params }) => {
   const { slug } = params;
-  const res = await fetch(`/portfolios/${slug}`);
+  const res = await fetch(`/api/portfolios/${slug}`);
   const portfolio: Portfolio = await res.json();
 
   if (res.ok) {

@@ -1,7 +1,8 @@
+import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch }) => {
-  const res = await fetch('/portfolios');
+  const res = await fetch('/api/portfolios');
   const portfolios = await res.json();
 
   if (res.ok) {
@@ -10,8 +11,5 @@ export const load: PageLoad = async ({ fetch }) => {
     };
   }
 
-  return {
-    status: res.status,
-    error: new Error('could not get portfolios'),
-  };
+  throw error(503, 'Could not fetch posts');
 };

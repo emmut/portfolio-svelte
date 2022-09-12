@@ -9,9 +9,9 @@
   import type { Tool } from '$lib/types/Tool';
 
   export let data;
-  const { about }: PortableTextBlocks = data;
-  const { image }: SanityImageAssetDocument = data;
-  const { tools }: Tool[] = data;
+  const about: PortableTextBlocks = data.about;
+  const image: SanityImageAssetDocument = data.image;
+  const tools: Tool[] = data.tools;
 </script>
 
 <svelte:head>
