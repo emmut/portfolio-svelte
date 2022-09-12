@@ -8,9 +8,10 @@
   import type { SanityImageAssetDocument } from '@sanity/client';
   import type { Tool } from '$lib/types/Tool';
 
-  export let about: PortableTextBlocks;
-  export let image: SanityImageAssetDocument;
-  export let tools: Tool[];
+  export let data;
+  const about: PortableTextBlocks = data.about;
+  const image: SanityImageAssetDocument = data.image;
+  const tools: Tool[] = data.tools;
 </script>
 
 <svelte:head>

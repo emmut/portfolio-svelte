@@ -14,16 +14,16 @@
         return JSON.parse(prevRepos);
       }
 
-      const response = await fetch('/github/repos.json');
+      const response = await fetch('/api/github/repos');
       const json = await response.json();
 
-      const repos = json.repos.viewer.pinnedItems.nodes;
+      const repos = json.viewer.pinnedItems.nodes;
       sessionStorage.setItem(githubSessionKey, JSON.stringify(repos));
 
       return repos;
     } catch (error) {
       console.error(error);
-      throw new Error('could not fetch repos');
+      throw new Error('Could not fetch repos');
     }
   }
 

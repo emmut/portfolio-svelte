@@ -1,13 +1,14 @@
 /** @see https://www.npmjs.com/package/graphql-request */
 /** @see https://docs.github.com/en/graphql */
 
+import { json, error, type RequestHandler } from '@sveltejs/kit';
+
 import 'dotenv/config';
 import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
-import type { RequestHandler } from '@sveltejs/kit';
 import { endpoint } from '$lib/config/default';
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
   const query = gql`
     {
       viewer {
@@ -27,16 +28,8 @@ export const get: RequestHandler = async () => {
   try {
     const data = await client.request(query);
 
-    return {
-      status: 200,
-      body: {
-        ...data,
-      },
-    };
-  } catch (error) {
-    return {
-      status: 502,
-      body: new Error('Bad Gateway'),
-    };
+    return json(data);
+  } catch (e) {
+    throw error(502, 'Bad Gateway');
   }
 };

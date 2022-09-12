@@ -1,4 +1,4 @@
-import { dev } from '$app/env';
+import { dev } from '$app/environment';
 
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
@@ -6,6 +6,7 @@ import imageUrlBuilder from '@sanity/image-url';
 
 import createClient from '@sanity/client';
 import { api } from '../../studio/sanity.json';
+
 const { projectId, dataset } = api;
 
 const config = {
