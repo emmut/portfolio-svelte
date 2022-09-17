@@ -3,12 +3,12 @@ import { error } from '@sveltejs/kit';
 
 // FIXME: Type this correctly
 export const load: LayoutLoad = async ({ fetch }) => {
-  const res1 = await fetch('/api/github/profile');
-  const githubProfile = await res1.json();
-  const res2 = await fetch('/api/profile');
-  const profile = await res2.json();
+  const [res1, res2] = await Promise.all([fetch('/api/github/profile'), fetch('/api/profile')]);
 
   if (res1.ok && res2.ok) {
+    const githubProfile = await res1.json();
+    const profile = await res2.json();
+
     return {
       githubProfile,
       profile,
