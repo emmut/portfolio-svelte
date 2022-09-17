@@ -1,3 +1,5 @@
+import { dev } from '$app/environment';
+
 export const endpoint = 'https://api.github.com/graphql';
 
 export const github = 'https://github.com/emmut';
@@ -14,3 +16,5 @@ export const themeProps = {
     color: '#db2777',
   },
 };
+
+export const counterUri = dev ? 'local-dev' : 'emmut-portfoli-app';

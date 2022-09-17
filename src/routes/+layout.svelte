@@ -25,6 +25,9 @@
 
   const githubProfile: GithubProfileType = data.githubProfile;
   const profile: ProfileType = data.profile;
+  const count: number = data.count;
+
+  console.log(count);
 
   $: currentIcon = $currentTheme === 'dark' ? themeProps.dark.icon : themeProps.light.icon;
   $: currentColor = $currentTheme === 'dark' ? themeProps.dark.color : themeProps.light.color;
@@ -96,8 +99,13 @@
     target="_blank"
     rel="no-referrer no-opener"
   >
-    <span class="inline-block font-semibold dark:text-neutral-200">
-      <span class="group-hover:text-pink-600 dark:group-hover:text-green-500">/</span>emmut
+    <span
+      class="inline-flex items-center space-x-1 font-semibold tracking-wide dark:text-neutral-200"
+    >
+      <span class="group-hover:text-pink-600 dark:group-hover:text-green-500">/</span>
+      <span class="">emmut -</span>
+      <Icon class="inline-block h-4 w-4" name="computer" />
+      <span class="rounded-sm text-sm">{count}</span>
     </span>
 
     <Icon
