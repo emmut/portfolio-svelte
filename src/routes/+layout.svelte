@@ -6,7 +6,7 @@
 
   // Stores and data
   import { page } from '$app/stores';
-  import { github } from '$lib/config/default';
+  import { github, themeProps } from '$lib/config/default';
 
   // Assets
   import '$lib/styles/app.css';
@@ -18,6 +18,7 @@
   import ToggleDarkMode from '$lib/components/ToggleDarkMode.svelte';
   import GithubProfile from '$lib/components/GithubProfile.svelte';
   import Profile from '$lib/components/Profile.svelte';
+  import { theme as currentTheme } from '$lib/stores/theme';
 
   // Props
   export let data;
@@ -25,10 +26,8 @@
   const githubProfile: GithubProfileType = data.githubProfile;
   const profile: ProfileType = data.profile;
 
-  // const icons = {
-  //   dark: '/static/favicon.png',
-  //   light: '/static/favicon-light.png',
-  // };
+  $: currentIcon = $currentTheme === 'dark' ? themeProps.dark.icon : themeProps.light.icon;
+  $: currentColor = $currentTheme === 'dark' ? themeProps.dark.color : themeProps.light.color;
 
   // Settings
   export const prerender = true;
@@ -46,6 +45,9 @@
       document.documentElement.classList.remove('dark');
     }
   </script>
+
+  <link rel="icon" href={currentIcon} />
+  <meta name="theme-color" content={currentColor} />
 </svelte:head>
 
 <header class="mx-auto flex w-full items-center gap-5 py-6 md:py-10">

@@ -2,6 +2,7 @@ import { browser } from '$app/environment';
 import type { Theme } from '$lib/types/Theme';
 import type { BlockChild, BlockSpan, PortableTextBlocks } from '@portabletext/svelte/ptTypes';
 import type { HSLObject } from './types/Color';
+import { theme as currentTheme } from '$lib/stores/theme';
 
 export function mergeClasses(classesA: string, classesB: string): string {
   const a = classesA.split(' ');
@@ -10,14 +11,16 @@ export function mergeClasses(classesA: string, classesB: string): string {
   return a.concat(b).join(' ');
 }
 
-export function setupTheme(theme: Theme): number {
+export function handleSwitchTheme(theme: Theme): number {
   if (theme === 'light') {
     document.documentElement.classList.remove('dark');
+    currentTheme.set('light');
     return 0;
   }
 
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');
+    currentTheme.set('dark');
     return 1;
   }
 
@@ -26,8 +29,10 @@ export function setupTheme(theme: Theme): number {
 
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark');
+      currentTheme.set('dark');
     } else {
       document.documentElement.classList.remove('dark');
+      currentTheme.set('light');
     }
     return 2;
   }
