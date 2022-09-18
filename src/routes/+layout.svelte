@@ -124,9 +124,7 @@
       class="inline-flex items-center space-x-1 font-semibold tracking-wide dark:text-neutral-200"
     >
       <span class="group-hover:text-pink-600 dark:group-hover:text-green-500">/</span>
-      <span class="">emmut -</span>
-      <Icon class="inline-block h-4 w-4" name="computer" />
-      <span class="rounded-sm text-sm">{count}</span>
+      <span class="">emmut</span>
     </span>
 
     <Icon
