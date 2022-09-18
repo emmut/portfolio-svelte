@@ -42,6 +42,18 @@
     ? themeProps.dark.color 
     : themeProps.light.color;
 
+  if (browser) {
+    // When the user is letting the system decide the current theme we
+    // want change the it if `prefers-color-scheme` changes so the user gets immidiate feedback.
+    // prettier-ignore
+    window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', () => {
+        if ($currentTheme === Theme.system) {
+          handleSwitchTheme(Theme.system);
+        }
+      });
+  }
+
   // Settings
   export const prerender = true;
 </script>
