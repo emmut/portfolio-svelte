@@ -23,8 +23,8 @@
   class="mb-6 w-full xl:-ml-8 xl:w-[calc(100%+4rem)] xl:min-w-[calc(100%+4rem)]"
   src={image}
   alt={image.caption}
-  width="1000"
-  height="750"
+  width="750"
+  height="422"
 />
 
 <div class="prose mx-auto dark:prose-invert">

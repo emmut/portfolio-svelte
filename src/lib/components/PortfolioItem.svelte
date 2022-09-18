@@ -2,9 +2,9 @@
   import type { Portfolio } from '$lib/types/Portfolio';
   import { urlFor } from '$lib/sanity';
   import { deviceDpr, minmax } from '$lib/utils';
-  import Icon from './Icon.svelte';
   import { onDestroy } from 'svelte';
   import { browser } from '$app/environment';
+  import Icon from './Icon.svelte';
 
   export let portfolio: Portfolio;
   export let index: number;
@@ -13,7 +13,7 @@
 
   $: card =
     (open ? 'opacity-1' : 'opacity-0') +
-    ' h-full bg-gray-800/40 p-4 text-neutral-50 transition-all duration-500';
+    ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500';
 
   let portfolioElement: HTMLAnchorElement;
 
@@ -57,7 +57,7 @@
     />
   {/if}
   <div class={card}>
-    <h2 class="text-xl font-bold">{portfolio.title}</h2>
+    <h2 class="w-3/4 text-xl font-bold leading-tight">{portfolio.title}</h2>
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
 
