@@ -15,32 +15,41 @@
   // Components
   import Icon from '$lib/components/Icon.svelte';
   import NavLink from '$lib/components/NavLink.svelte';
-  import ToggleDarkMode from '$lib/components/ToggleDarkMode.svelte';
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import GithubProfile from '$lib/components/GithubProfile.svelte';
   import Profile from '$lib/components/Profile.svelte';
   import { theme as currentTheme } from '$lib/stores/theme';
+  import { Theme } from '$lib/types/Theme';
+  import { browser } from '$app/environment';
+  import { handleSwitchTheme } from '$lib/utils';
 
   // Props
-  export let data;
+  export let data: {
+    githubProfile: GithubProfileType;
+    profile: ProfileType;
+    count: number;
+  };
 
-  const githubProfile: GithubProfileType = data.githubProfile;
-  const profile: ProfileType = data.profile;
-  const count: number = data.count;
+  const { githubProfile, profile, count } = data;
 
-  console.log(count);
+  // prettier-ignore
+  $: currentIcon = $currentTheme === Theme.dark 
+    ? themeProps.dark.icon 
+    : themeProps.light.icon;
 
-  $: currentIcon = $currentTheme === 'dark' ? themeProps.dark.icon : themeProps.light.icon;
-  $: currentColor = $currentTheme === 'dark' ? themeProps.dark.color : themeProps.light.color;
+  // prettier-ignore
+  $: currentColor = $currentTheme === Theme.dark 
+    ? themeProps.dark.color 
+    : themeProps.light.color;
 
   // Settings
   export const prerender = true;
 </script>
 
-<!-- Setup theme before Svelte loads to prevent flashing theme -->
 <svelte:head>
   <script>
     if (
-      localStorage.theme === 'dark' ||
+      localStorage.theme === 'DARK' ||
       (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       document.documentElement.classList.add('dark');
@@ -67,7 +76,7 @@
         <NavLink href="/repos">Repos</NavLink>
       </nav>
 
-      <ToggleDarkMode />
+      <ThemeToggle />
     </div>
   </div>
 </header>

@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import type { Theme } from '$lib/types/Theme';
+import { Theme } from '$lib/types/Theme';
 import type { BlockChild, BlockSpan, PortableTextBlocks } from '@portabletext/svelte/ptTypes';
 import type { HSLObject } from './types/Color';
 import { theme as currentTheme } from '$lib/stores/theme';
@@ -11,31 +11,34 @@ export function mergeClasses(classesA: string, classesB: string): string {
   return a.concat(b).join(' ');
 }
 
-export function handleSwitchTheme(theme: Theme): number {
-  if (theme === 'light') {
+export function handleSwitchTheme(theme: Theme): Theme {
+  currentTheme.set(theme);
+
+  if (!browser) {
+    return theme;
+  }
+
+  if (theme === Theme.light) {
     document.documentElement.classList.remove('dark');
-    currentTheme.set('light');
-    return 0;
+    localStorage.setItem('theme', theme);
   }
 
-  if (theme === 'dark') {
+  if (theme === Theme.dark) {
     document.documentElement.classList.add('dark');
-    currentTheme.set('dark');
-    return 1;
+    localStorage.setItem('theme', theme);
   }
 
-  if (theme === 'system') {
+  if (theme === Theme.system) {
     localStorage.removeItem('theme');
 
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark');
-      currentTheme.set('dark');
     } else {
       document.documentElement.classList.remove('dark');
-      currentTheme.set('light');
     }
-    return 2;
   }
+
+  return theme;
 }
 
 export function deviceDpr(): number {
@@ -121,4 +124,32 @@ export function toPlainText(blocks: PortableTextBlocks): string {
       return (block.children as (BlockChild & BlockSpan)[]).map((child) => child.text).join('');
     })
     .join('\n\n');
+}
+
+export function translateStringToTheme(theme: string): Theme {
+  if (theme === 'LIGHT') {
+    return Theme.light;
+  }
+
+  if (theme === 'DARK') {
+    return Theme.dark;
+  }
+
+  if (theme === 'SYSTEM') {
+    return Theme.system;
+  }
+}
+
+export function translateThemeToIndex(theme: Theme): number {
+  if (theme === 'LIGHT') {
+    return 0;
+  }
+
+  if (theme === 'DARK') {
+    return 1;
+  }
+
+  if (theme === 'SYSTEM') {
+    return 2;
+  }
 }

@@ -1,1 +1,5 @@
-export type Theme = 'light' | 'dark' | 'system' | null;
+export const enum Theme {
+  light = 'LIGHT',
+  dark = 'DARK',
+  system = 'SYSTEM',
+}
