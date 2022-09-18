@@ -8,11 +8,11 @@ export const githubSessionKey = 'github-repos';
 
 export const themeProps = {
   dark: {
-    icon: 'favicon.png',
+    icon: '/favicon.png',
     color: '#22c55e',
   },
   light: {
-    icon: 'favicon-light.png',
+    icon: '/favicon-light.png',
     color: '#db2777',
   },
 };
