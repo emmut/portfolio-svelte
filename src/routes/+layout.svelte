@@ -94,8 +94,8 @@
 </header>
 
 <div
-  class="mx-auto flex w-full flex-1 flex-col gap-5 md:flex-row{$page.url.pathname !== '/' &&
-  $page.url.pathname !== '/repos'
+  class="mx-auto flex w-full flex-1 flex-col gap-8 lg:gap-5 md:flex-row{$page.url.pathname !==
+    '/' && $page.url.pathname !== '/repos'
     ? ' flex-col-reverse'
     : ''}"
 >
