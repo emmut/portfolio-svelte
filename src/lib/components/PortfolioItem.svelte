@@ -13,7 +13,7 @@
 
   $: card =
     (open ? 'opacity-1' : 'opacity-0') +
-    ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500';
+    ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500 overflow-hidden';
 
   let portfolioElement: HTMLAnchorElement;
 
@@ -57,7 +57,9 @@
     />
   {/if}
   <div class={card}>
-    <h2 class="w-3/4 text-xl font-bold leading-tight">{portfolio.title}</h2>
+    <h2 class="leading-tightc mb-2 w-[calc(100%-theme('width.6'))] text-xl font-bold">
+      {portfolio.title}
+    </h2>
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
 
