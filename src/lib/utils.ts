@@ -153,3 +153,15 @@ export function translateThemeToIndex(theme: Theme): number {
     return 2;
   }
 }
+
+export function determineTheme(theme: Theme): Theme {
+  if (theme !== 'SYSTEM') {
+    return theme;
+  }
+
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return Theme.dark;
+  }
+
+  return Theme.light;
+}

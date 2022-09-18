@@ -18,10 +18,10 @@
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import GithubProfile from '$lib/components/GithubProfile.svelte';
   import Profile from '$lib/components/Profile.svelte';
-  import { theme as currentTheme } from '$lib/stores/theme';
+  import { theme } from '$lib/stores/theme';
   import { Theme } from '$lib/types/Theme';
   import { browser } from '$app/environment';
-  import { handleSwitchTheme } from '$lib/utils';
+  import { determineTheme, handleSwitchTheme } from '$lib/utils';
 
   // Props
   export let data: {
@@ -30,15 +30,17 @@
     count: number;
   };
 
-  const { githubProfile, profile, count } = data;
+  const { githubProfile, profile } = data;
+
+  $: currentTheme = determineTheme($theme);
 
   // prettier-ignore
-  $: currentIcon = $currentTheme === Theme.dark 
+  $: currentIcon = currentTheme === Theme.dark 
     ? themeProps.dark.icon 
     : themeProps.light.icon;
 
   // prettier-ignore
-  $: currentColor = $currentTheme === Theme.dark 
+  $: currentColor = currentTheme === Theme.dark 
     ? themeProps.dark.color 
     : themeProps.light.color;
 
@@ -48,7 +50,7 @@
     // prettier-ignore
     window.matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', () => {
-        if ($currentTheme === Theme.system) {
+        if ($theme === Theme.system) {
           handleSwitchTheme(Theme.system);
         }
       });
