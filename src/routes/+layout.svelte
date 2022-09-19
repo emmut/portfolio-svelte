@@ -51,7 +51,7 @@
     window.matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', () => {
         if ($theme === Theme.system) {
-          handleSwitchTheme(Theme.system);
+          currentTheme = determineTheme(handleSwitchTheme(Theme.system));
         }
       });
   }
