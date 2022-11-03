@@ -24,7 +24,7 @@
   }
 </script>
 
-<span
+<button
   class="relative grid h-7 w-7 cursor-pointer place-items-center rounded-full bg-pink-600 text-neutral-50 dark:bg-neutral-200 dark:text-gray-800"
   on:click={handleToggle}
 >
@@ -37,4 +37,4 @@
   {#if toggleThemeState === Theme.system}
     <Icon class="inline-block h-4 w-4 max-w-full" name="computer" />
   {/if}
-</span>
+</button>

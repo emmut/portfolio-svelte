@@ -63,9 +63,9 @@
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
 
-  <div class="info-icon" tabindex="0" on:click|preventDefault={handleClick}>
+  <button class="info-icon" on:click|preventDefault={handleClick}>
     <Icon name="info" class="h-4 w-4" />
-  </div>
+  </button>
 </a>
 
 <style lang="postcss">

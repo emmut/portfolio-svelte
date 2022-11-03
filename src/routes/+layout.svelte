@@ -120,7 +120,7 @@
     class="group flex cursor-pointer items-center justify-between"
     href={github}
     target="_blank"
-    rel="no-referrer no-opener"
+    rel="noreferrer noopener"
   >
     <span
       class="inline-flex items-center space-x-1 font-semibold tracking-wide dark:text-neutral-200"
