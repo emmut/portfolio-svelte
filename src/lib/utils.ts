@@ -165,3 +165,14 @@ export function determineTheme(theme: Theme): Theme {
 
   return Theme.light;
 }
+
+/**
+ * Get the current theme from local storage. Defaults to Theme.system.
+ */
+export function getTheme(): Theme {
+  if (!browser) {
+    return;
+  }
+  const theme = window.localStorage.getItem('theme') ?? 'SYSTEM';
+  return translateStringToTheme(theme);
+}
