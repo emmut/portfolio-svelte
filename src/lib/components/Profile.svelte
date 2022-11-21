@@ -3,7 +3,7 @@
   import { urlFor } from '$lib/sanity';
   import type { Profile } from '$lib/types/Profile';
   import { deviceDpr } from '$lib/utils';
-  import PortableText from '@portabletext/svelte';
+  import { PortableText } from '@portabletext/svelte';
   import Link from './Link.svelte';
 
   export let profile: Profile;
@@ -24,8 +24,8 @@
     class="bio prose mt-2 text-sm text-zinc-600 dark:text-zinc-300 dark:prose-strong:text-zinc-200"
   >
     <PortableText
-      blocks={bio}
-      serializers={{
+      value={bio}
+      components={{
         marks: {
           link: Link,
         },

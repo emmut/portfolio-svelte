@@ -1,15 +1,15 @@
 <script lang="ts">
-  import PortableText from '@portabletext/svelte';
+  import { PortableText } from '@portabletext/svelte';
   import Link from '$lib/components/Link.svelte';
   import Image from '$lib/components/SanityImage.svelte';
   import Card from '$lib/components/Card.svelte';
   import { toPlainText } from '$lib/utils';
-  import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
   import type { SanityImageAssetDocument } from '@sanity/client';
   import type { Tool } from '$lib/types/Tool';
+  import type { InputValue } from '@portabletext/svelte/ptTypes';
 
   export let data;
-  const about: PortableTextBlocks = data.about;
+  const about: InputValue = data.about;
   const image: SanityImageAssetDocument = data.image;
   const tools: Tool[] = data.tools;
 </script>
@@ -30,8 +30,8 @@
 <div class="prose mx-auto dark:prose-invert">
   <h1>About me</h1>
   <PortableText
-    blocks={about}
-    serializers={{
+    value={about}
+    components={{
       marks: {
         link: Link,
       },

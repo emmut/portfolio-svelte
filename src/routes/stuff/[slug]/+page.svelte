@@ -1,5 +1,5 @@
 <script lang="ts">
-  import PortableText from '@portabletext/svelte';
+  import { PortableText } from '@portabletext/svelte';
   import type { Portfolio } from '$lib/types/Portfolio';
   import Link from '$lib/components/Link.svelte';
   import Image from '$lib/components/SanityImage.svelte';
@@ -22,8 +22,8 @@
 <div class="prose mx-auto dark:prose-invert">
   <h1 class="mb-0 text-4xl font-bold">{portfolio.title}</h1>
   <PortableText
-    blocks={portfolio.bio}
-    serializers={{
+    value={portfolio.bio}
+    components={{
       marks: {
         link: Link,
       },

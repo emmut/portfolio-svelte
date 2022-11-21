@@ -1,4 +1,4 @@
-import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
+import type { InputValue } from '@portabletext/svelte/ptTypes';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 export type Portfolio = {
@@ -13,5 +13,5 @@ export type Portfolio = {
     caption: string;
   };
   excerpt?: string;
-  bio?: PortableTextBlocks;
+  bio?: InputValue;
 };
