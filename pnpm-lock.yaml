@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fontsource/inter': ^4.5.14
-  '@portabletext/svelte': ^0.2.0
+  '@portabletext/svelte': ^1.0.1
   '@sanity/client': ^3.4.1
   '@sanity/image-url': ^1.0.1
   '@sveltejs/adapter-auto': 1.0.0-next.89
@@ -45,7 +45,7 @@ dependencies:
   tailwindcss: 3.2.4_postcss@8.4.19
 
 devDependencies:
-  '@portabletext/svelte': 0.2.0_svelte@3.53.1
+  '@portabletext/svelte': 1.0.1_svelte@3.53.1
   '@sveltejs/adapter-auto': 1.0.0-next.89
   '@sveltejs/kit': 1.0.0-next.555_svelte@3.53.1+vite@3.2.4
   '@typescript-eslint/eslint-plugin': 4.33.0_b437dje45jwsli5vlhomcei76i
@@ -176,12 +176,24 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@portabletext/svelte/0.2.0_svelte@3.53.1:
-    resolution: {integrity: sha512-9CWGM0ud3eyjF01ox8MZVAkv0YUKBtKKok8EpAZpFpFo4RnhCBqfD8GhcsZ6AyYCRcVKreAeba8kU5pk0mo0/Q==}
+  /@portabletext/svelte/1.0.1_svelte@3.53.1:
+    resolution: {integrity: sha512-37nyWavAl/MykqN5mrCmog9rYy+Bj6v64qn5oO2aj5GLF/BVz+zJThhdO2Ks70B6gkJXjVHDrcNs3qeIdZ53EA==}
     peerDependencies:
-      svelte: ^3.40.0
+      svelte: ^3.47.0
     dependencies:
+      '@portabletext/toolkit': 1.0.6
       svelte: 3.53.1
+    dev: true
+
+  /@portabletext/toolkit/1.0.6:
+    resolution: {integrity: sha512-u48kRSOyxbOmy0J//bLg1odTcL5dvPDmobSbiTgR11J/k9eIKCdWRiJtddpEyId/aWGP2bkX4ol2RMPCmAPCIg==}
+    dependencies:
+      '@portabletext/types': 1.0.3
+    dev: true
+
+  /@portabletext/types/1.0.3:
+    resolution: {integrity: sha512-SDDsdury2SaTI2D5Ea6o+Y39SSZMYHRMWJHxkxYl3yzFP0n/0EknOhoXcoaV+bxGr2dTTqZi2TOEj+uWYuavSw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
   /@sanity/client/3.4.1:
