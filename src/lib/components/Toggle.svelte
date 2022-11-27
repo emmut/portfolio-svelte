@@ -21,6 +21,7 @@
     : 'border-neutral-300 bg-neutral-300'}
   "
   on:click={handleClick}
+  {...$$props}
 >
   <div class="h-7 w-7 rounded-full bg-neutral-50 {toggled ? 'translate-x-full' : ''}" />
 </button>
