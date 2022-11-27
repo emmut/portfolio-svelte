@@ -63,7 +63,7 @@
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
 
-  <button class="info-icon" on:click|preventDefault={handleClick}>
+  <button class="info-icon" on:click|preventDefault={handleClick} title="Toggle the excerpt">
     <Icon name="info" class="h-4 w-4" />
   </button>
 </a>
