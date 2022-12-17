@@ -4,11 +4,10 @@
 import type { RequestHandler } from './$types';
 import type { Repos } from '$lib/types/Repos';
 
-import 'dotenv/config';
-import { env } from 'process';
 import { GraphQLClient, gql } from 'graphql-request';
 import { endpoint } from '$lib/config/default';
 import { json } from '@sveltejs/kit';
+import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
 
 export const GET: RequestHandler = async () => {
   const query = gql`
@@ -39,7 +38,7 @@ export const GET: RequestHandler = async () => {
 
   const client = new GraphQLClient(endpoint, {
     headers: {
-      authorization: `Bearer ${env.GITHUB_ACCESS_TOKEN}`,
+      authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
     },
   });
 
