@@ -4,10 +4,10 @@
 import type { RequestHandler } from './$types';
 import type { Repos } from '$lib/types/Repos';
 
+import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
 import { GraphQLClient, gql } from 'graphql-request';
 import { endpoint } from '$lib/config/default';
 import { json } from '@sveltejs/kit';
-import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
 
 export const GET: RequestHandler = async () => {
   const query = gql`
