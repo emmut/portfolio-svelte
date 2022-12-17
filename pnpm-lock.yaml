@@ -5,7 +5,6 @@ specifiers:
   '@portabletext/svelte': ^1.0.1
   '@sanity/client': ^3.4.1
   '@sanity/image-url': ^1.0.1
-  '@sveltejs/adapter-auto': 1.0.0-next.89
   '@sveltejs/kit': 1.0.1
   '@tailwindcss/aspect-ratio': ^0.4.2
   '@tailwindcss/line-clamp': ^0.4.2
@@ -46,7 +45,6 @@ dependencies:
 
 devDependencies:
   '@portabletext/svelte': 1.0.1_svelte@3.55.0
-  '@sveltejs/adapter-auto': 1.0.0-next.89
   '@sveltejs/kit': 1.0.1_svelte@3.55.0+vite@4.0.1
   '@typescript-eslint/eslint-plugin': 5.46.1_mqzxmroayievgzgel6yrqgih5i
   '@typescript-eslint/parser': 5.46.1_lzzuuodtsqwxnvqeq4g4likcqa
@@ -390,12 +388,6 @@ packages:
     resolution: {integrity: sha512-NBDKGj14g9Z+bopIvZcQKWCzJq5JSrdmzRR1CS+iyA3Gm8SnIWBfZa7I3mTg2X6Nu8LQXG0EPKXdOGozLS4i3w==}
     engines: {node: '>=0.10.0'}
     dev: false
-
-  /@sveltejs/adapter-auto/1.0.0-next.89:
-    resolution: {integrity: sha512-S+sASFX4sSZD1xEKmZ3zHxQh2DGxXBUpCGAtUakKkI2MRvFIm+zYIm+7GPekofMLd19FjdFDKkuOjBKPdmA8+w==}
-    dependencies:
-      import-meta-resolve: 2.1.0
-    dev: true
 
   /@sveltejs/kit/1.0.1_svelte@3.55.0+vite@4.0.1:
     resolution: {integrity: sha512-C41aCaDjA7xoUdsrc/lSdU1059UdLPIRE1vEIRRynzpMujNgp82bTMHkDosb6vykH6LrLf3tT2w2/5NYQhKYGQ==}
@@ -1401,10 +1393,6 @@ packages:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
-    dev: true
-
-  /import-meta-resolve/2.1.0:
-    resolution: {integrity: sha512-yG9pxkWJVTy4cmRsNWE3ztFdtFuYIV8G4N+cbCkO8b+qngkLyIUhxQFuZ0qJm67+0nUOxjMPT7nfksPKza1v2g==}
     dev: true
 
   /imurmurhash/0.1.4:
