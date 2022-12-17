@@ -2,6 +2,7 @@
   import Card from '$lib/components/Card.svelte';
   import type { GithubProfile } from '$lib/types/Profile';
   import { github } from '$lib/config/default';
+  import ProfileImage from './ProfileImage.svelte';
 
   export let githubProfile: GithubProfile;
 
@@ -9,11 +10,8 @@
 </script>
 
 <Card padding="py-4 px-3">
-  <img
-    class="h-28 w-28 rounded-full ring-4 ring-neutral-100/70"
-    src={avatarUrl}
-    alt="My Github avatar"
-  />
+  <ProfileImage src={avatarUrl} alt="My Github avatar" />
+
   <div class="text-md mt-4 font-bold tracking-wide">
     <span class="text-pink-600 dark:text-green-500">/</span>{login}
   </div>

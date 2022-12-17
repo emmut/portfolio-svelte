@@ -5,6 +5,7 @@
   import { deviceDpr } from '$lib/utils';
   import { PortableText } from '@portabletext/svelte';
   import Link from './Link.svelte';
+  import ProfileImage from './ProfileImage.svelte';
 
   export let profile: Profile;
 
@@ -12,11 +13,8 @@
 </script>
 
 <Card padding="py-4 px-3">
-  <img
-    class="h-28 w-28 rounded-full ring-4 ring-neutral-100/70"
-    src={urlFor(avatar).width(400).dpr(deviceDpr()).auto('format').url()}
-    alt="My Github avatar"
-  />
+  <ProfileImage src={urlFor(avatar).width(400).dpr(deviceDpr()).auto('format').url()} alt="Me" />
+
   <div class="text-md mt-4 font-bold tracking-wide">
     <span class="mr-0.5 text-pink-600 dark:text-green-500">/</span>{name}
   </div>
