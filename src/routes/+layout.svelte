@@ -21,7 +21,7 @@
   import { theme } from '$lib/stores/theme';
   import { Theme } from '$lib/types/Theme';
   import { browser } from '$app/environment';
-  import { determineTheme, handleSwitchTheme } from '$lib/utils';
+  import { determineTheme, getTheme, handleSwitchTheme } from '$lib/utils';
 
   // Props
   export let data: {
@@ -31,6 +31,8 @@
   };
 
   const { githubProfile, profile } = data;
+
+  $theme = getTheme();
 
   $: currentTheme = determineTheme($theme);
 

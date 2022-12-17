@@ -158,7 +158,7 @@ export function determineTheme(theme: Theme): Theme {
  */
 export function getTheme(): Theme {
   if (!browser) {
-    return;
+    return Theme.dark;
   }
   const theme = window.localStorage.getItem('theme') ?? 'SYSTEM';
   return translateStringToTheme(theme);
