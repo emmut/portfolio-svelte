@@ -40,7 +40,7 @@
   id="portfolio-{index}"
   class="group relative aspect-1 {minmax(index, 4, 'col-span-4', 'col-span-8')}"
   href="/stuff/{portfolio.slug.current}"
-  data-sveltekit-prefetch
+  data-sveltekit-preload-data
 >
   {#if portfolio.image}
     <img
