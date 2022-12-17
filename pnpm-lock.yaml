@@ -16,12 +16,12 @@ specifiers:
   dotenv: ^16.0.3
   eslint: ^8.30.0
   eslint-config-prettier: ^8.5.0
-  eslint-plugin-svelte3: ^3.4.1
+  eslint-plugin-svelte3: ^4.0.0
   graphql: ^16.6.0
   graphql-request: ^5.1.0
   postcss: ^8.4.20
   prettier: ^2.7.1
-  prettier-plugin-tailwindcss: ^0.1.13
+  prettier-plugin-tailwindcss: ^0.2.1
   svelte: ^3.55.0
   svelte-check: ^2.10.2
   svelte-preprocess: ^5.0.0
@@ -52,9 +52,9 @@ devDependencies:
   '@typescript-eslint/parser': 5.46.1_lzzuuodtsqwxnvqeq4g4likcqa
   eslint: 8.30.0
   eslint-config-prettier: 8.5.0_eslint@8.30.0
-  eslint-plugin-svelte3: 3.4.1_khrjkzzv5v2x7orkj5o7sxbz3a
+  eslint-plugin-svelte3: 4.0.0_khrjkzzv5v2x7orkj5o7sxbz3a
   prettier: 2.8.1
-  prettier-plugin-tailwindcss: 0.1.13_prettier@2.8.1
+  prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.1
   svelte: 3.55.0
   svelte-check: 2.10.2_qs7rgzvahok4cbkjoy5bgypde4
   svelte-preprocess: 5.0.0_uldce6htlskfyklq5y55tk7pdy
@@ -1140,11 +1140,10 @@ packages:
       eslint: 8.30.0
     dev: true
 
-  /eslint-plugin-svelte3/3.4.1_khrjkzzv5v2x7orkj5o7sxbz3a:
-    resolution: {integrity: sha512-7p59WG8qV8L6wLdl4d/c3mdjkgVglQCdv5XOTk/iNPBKXuuV+Q0eFP5Wa6iJd/G2M1qR3BkLPEzaANOqKAZczw==}
-    engines: {node: '>=10'}
+  /eslint-plugin-svelte3/4.0.0_khrjkzzv5v2x7orkj5o7sxbz3a:
+    resolution: {integrity: sha512-OIx9lgaNzD02+MDFNLw0GEUbuovNcglg+wnd/UY0fbZmlQSz7GlQiQ1f+yX0XvC07XPcDOnFcichqI3xCwp71g==}
     peerDependencies:
-      eslint: '>=6.0.0'
+      eslint: '>=8.0.0'
       svelte: ^3.2.0
     dependencies:
       eslint: 8.30.0
@@ -2081,8 +2080,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss/0.1.13_prettier@2.8.1:
-    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+  /prettier-plugin-tailwindcss/0.2.1_prettier@2.8.1:
+    resolution: {integrity: sha512-aIO8IguumORyRsmT+E7JfJ3A9FEoyhqZR7Au7TBOege3VZkgMvHJMkufeYp4zjnDK2iq4ktkvGMNOQR9T8lisQ==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       prettier: '>=2.2.0'
