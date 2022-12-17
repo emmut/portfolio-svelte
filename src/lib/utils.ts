@@ -1,6 +1,5 @@
 import { browser } from '$app/environment';
 import { Theme } from '$lib/types/Theme';
-import type { BlockChild, BlockSpan, PortableTextBlocks } from '@portabletext/svelte/ptTypes';
 import type { HSLObject } from './types/Color';
 import { theme as currentTheme } from '$lib/stores/theme';
 
@@ -112,18 +111,6 @@ export function hexToHsl(hex: string): HSLObject {
     s: s,
     l: l,
   };
-}
-
-// PortableText block to plain text
-export function toPlainText(blocks: PortableTextBlocks): string {
-  return blocks
-    .map((block) => {
-      if (block._type !== 'block' || !block.children) {
-        return '';
-      }
-      return (block.children as (BlockChild & BlockSpan)[]).map((child) => child.text).join('');
-    })
-    .join('\n\n');
 }
 
 export function translateStringToTheme(theme: string): Theme {
