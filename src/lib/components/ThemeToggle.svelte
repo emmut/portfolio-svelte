@@ -8,7 +8,8 @@
   const modes = [
     Theme.light, 
     Theme.dark, 
-    Theme.system
+    Theme.system,
+    Theme.none
   ];
 
   let index = translateThemeToIndex($theme);
