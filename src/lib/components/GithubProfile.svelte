@@ -10,7 +10,7 @@
 
 <Card padding="py-4 px-3">
   <img
-    class="h-28 w-28 rounded-full ring-2 ring-neutral-100/70"
+    class="h-28 w-28 rounded-full ring-4 ring-neutral-100/70"
     src={avatarUrl}
     alt="My Github avatar"
   />
