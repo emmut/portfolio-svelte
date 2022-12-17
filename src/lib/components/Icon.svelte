@@ -1,5 +1,9 @@
+<script lang="ts">
+  export let name: string;
+</script>
+
 <span {...$$props}>
-  {#if $$props.name === 'arrow-right'}
+  {#if name === 'arrow-right'}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
       <path
         fill-rule="evenodd"
@@ -8,12 +12,12 @@
       />
     </svg>
   {/if}
-  {#if $$props.name === 'moon'}
+  {#if name === 'moon'}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
     </svg>
   {/if}
-  {#if $$props.name === 'sun'}
+  {#if name === 'sun'}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path
         stroke-linecap="round"
@@ -23,7 +27,7 @@
       />
     </svg>
   {/if}
-  {#if $$props.name === 'computer'}
+  {#if name === 'computer'}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path
         stroke-linecap="round"
@@ -33,7 +37,7 @@
       />
     </svg>
   {/if}
-  {#if $$props.name === 'info'}
+  {#if name === 'info'}
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
