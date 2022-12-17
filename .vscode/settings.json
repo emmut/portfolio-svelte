@@ -3,6 +3,7 @@
     "emmut",
     "fontsource",
     "Jansson",
-    "portabletext"
+    "portabletext",
+    "sveltekit"
   ]
 }
