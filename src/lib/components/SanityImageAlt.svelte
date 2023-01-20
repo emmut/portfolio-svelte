@@ -4,10 +4,11 @@
   import type { CropMode, FitMode, SanityImageSource } from '@sanity/image-url/lib/types/types';
   import { onMount } from 'svelte';
 
-  export let src: SanityImageSource;
+  export let src: SanityImageSource | string;
   export let quality = 85;
   export let crop: CropMode = 'center';
   export let fit: FitMode = 'crop';
+  export let useSanity = true;
 
   let image: HTMLImageElement;
   let drp = deviceDpr();
@@ -16,14 +17,20 @@
   $: loaded = false;
 
   onMount(() => {
-    imgSrc = urlFor(src)
-      .width(image.clientWidth)
-      .height(image.clientHeight)
-      .quality(quality)
-      .dpr(drp)
-      .crop(crop)
-      .fit(fit)
-      .url();
+    if (useSanity) {
+      imgSrc = urlFor(src)
+        .width(image.clientWidth)
+        .height(image.clientHeight)
+        .quality(quality)
+        .dpr(drp)
+        .crop(crop)
+        .fit(fit)
+        .auto('format')
+        .url();
+      return;
+    }
+
+    imgSrc = typeof src === 'string' ? src : '';
   });
 </script>
 
@@ -43,7 +50,7 @@
 
 <style lang="postcss">
   img {
-    @apply block h-full w-full;
+    @apply block;
     transition: opacity 400ms ease-out;
 
     &[data-loaded='false'] {
