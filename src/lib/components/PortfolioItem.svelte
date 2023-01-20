@@ -47,6 +47,8 @@
       class="absolute inset-0 -z-10 h-full w-full"
       src={portfolio?.image}
       alt={portfolio.image.caption}
+      width="224"
+      height="224"
     />
   {/if}
   <div class={card}>
