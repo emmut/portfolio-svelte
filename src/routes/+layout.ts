@@ -1,8 +1,6 @@
 import type { LayoutLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
-export const prerender = true;
-
 export const load: LayoutLoad = async ({ fetch }) => {
   // prettier-ignore
   const [res1, res2] = await Promise.all([
