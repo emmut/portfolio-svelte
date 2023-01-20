@@ -37,7 +37,7 @@
     alt={$$props.alt}
     width={$$props.width}
     height={$$props.height}
-    style={`aspect-ratio: ${$$props.width}/${$$props.height}`}
+    style={$$props.width && $$props.height && `aspect-ratio: ${$$props.width}/${$$props.height}`}
   />
 {/if}
 
