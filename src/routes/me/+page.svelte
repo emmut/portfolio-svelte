@@ -1,7 +1,7 @@
 <script lang="ts">
   import { PortableText, toPlainText } from '@portabletext/svelte';
   import Link from '$lib/components/Link.svelte';
-  import Image from '$lib/components/SanityImage.svelte';
+  import Image from '$lib/components/SanityImageAlt.svelte';
   import Card from '$lib/components/Card.svelte';
   import type { SanityImageAssetDocument } from '@sanity/client';
   import type { Tool } from '$lib/types/Tool';

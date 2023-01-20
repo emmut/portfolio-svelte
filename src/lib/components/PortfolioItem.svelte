@@ -1,10 +1,10 @@
 <script lang="ts">
   import type { Portfolio } from '$lib/types/Portfolio';
-  import { urlFor } from '$lib/sanity';
-  import { deviceDpr, minmax } from '$lib/utils';
+  import { minmax } from '$lib/utils';
   import { onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   import Icon from './Icon.svelte';
+  import Image from './SanityImageAlt.svelte';
 
   export let portfolio: Portfolio;
   export let index: number;
@@ -43,16 +43,9 @@
   data-sveltekit-preload-data
 >
   {#if portfolio.image}
-    <img
+    <Image
       class="absolute inset-0 -z-10 h-full w-full"
-      src={urlFor(portfolio?.image)
-        .auto('format')
-        .dpr(deviceDpr())
-        .width(minmax(index, 4, 250, 500))
-        .height(minmax(index, 4, 250, 500))
-        .crop('center')
-        .fit('crop')
-        .url()}
+      src={portfolio?.image}
       alt={portfolio.image.caption}
     />
   {/if}
