@@ -98,12 +98,12 @@
 </header>
 
 <div
-  class="mx-auto flex w-full flex-col gap-8 lg:gap-5 md:flex-row{$page.url.pathname !== '/' &&
-  $page.url.pathname !== '/repos'
+  class="mx-auto grid w-full grid-cols-1 gap-8 md:flex-1 md:grid-cols-[theme(width.72)_auto] lg:gap-16 md:flex-row{$page
+    .url.pathname !== '/' && $page.url.pathname !== '/repos'
     ? ' flex-col-reverse'
     : ''}"
 >
-  <aside class="md:w-96">
+  <aside>
     {#if $page.url.pathname === '/repos'}
       <GithubProfile {githubProfile} />
     {:else}
@@ -117,7 +117,7 @@
   </div>
 </div>
 
-<footer class="mx-auto mt-8 w-full pb-6">
+<footer class="mt-16 w-full pb-6">
   <a
     class="group flex cursor-pointer items-center justify-between"
     href={github}
