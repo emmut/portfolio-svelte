@@ -4,7 +4,7 @@
   import { onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   import Icon from './Icon.svelte';
-  import Image from './SanityImageAlt.svelte';
+  import Image from './Image.svelte';
 
   export let portfolio: Portfolio;
   export let index: number;

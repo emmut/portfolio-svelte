@@ -2,7 +2,7 @@
   import { PortableText } from '@portabletext/svelte';
   import type { Portfolio } from '$lib/types/Portfolio';
   import Link from '$lib/components/Link.svelte';
-  import Image from '$lib/components/SanityImageAlt.svelte';
+  import Image from '$lib/components/Image.svelte';
 
   export let data;
   const portfolio: Portfolio = data.portfolio;

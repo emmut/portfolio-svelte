@@ -1,11 +1,9 @@
 <script lang="ts">
   import Card from '$lib/components/Card.svelte';
-  import { urlFor } from '$lib/sanity';
   import type { Profile } from '$lib/types/Profile';
-  import { deviceDpr } from '$lib/utils';
   import { PortableText } from '@portabletext/svelte';
   import Link from './Link.svelte';
-  import ProfileImage from './ProfileImage.svelte';
+  import Image from './Image.svelte';
 
   export let profile: Profile;
 
@@ -13,7 +11,13 @@
 </script>
 
 <Card padding="py-4 px-3">
-  <ProfileImage src={urlFor(avatar).width(400).dpr(deviceDpr()).auto('format').url()} alt="Me" />
+  <Image
+    src={avatar}
+    class="max-w-sm rounded-full ring-4 ring-zinc-300/70 dark:ring-neutral-100/70"
+    alt="Me"
+    width="112"
+    height="112"
+  />
 
   <div class="text-md mt-4 font-bold tracking-wide">
     <span class="mr-0.5 text-pink-600 dark:text-green-500">/</span>{name}
