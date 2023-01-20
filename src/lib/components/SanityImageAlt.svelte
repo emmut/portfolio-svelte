@@ -1,0 +1,54 @@
+<script lang="ts">
+  import { urlFor } from '$lib/sanity';
+  import { deviceDpr } from '$lib/utils';
+  import type { CropMode, FitMode, SanityImageSource } from '@sanity/image-url/lib/types/types';
+  import { onMount } from 'svelte';
+
+  export let src: SanityImageSource;
+  export let quality = 85;
+  export let crop: CropMode = 'center';
+  export let fit: FitMode = 'crop';
+
+  let image: HTMLImageElement;
+  let drp = deviceDpr();
+  let imgSrc: string;
+
+  $: loaded = false;
+
+  onMount(() => {
+    imgSrc = urlFor(src)
+      .width(image.clientWidth)
+      .height(image.clientHeight)
+      .quality(quality)
+      .dpr(drp)
+      .crop(crop)
+      .fit(fit)
+      .url();
+  });
+</script>
+
+{#if src}
+  <img
+    bind:this={image}
+    on:load={() => (loaded = true)}
+    data-loaded={loaded}
+    class={$$props.class}
+    src={imgSrc}
+    alt={$$props.alt}
+    width={$$props.width}
+    height={$$props.height}
+    style={`aspect-ratio: ${$$props.width}/${$$props.height}`}
+  />
+{/if}
+
+<style lang="postcss">
+  img {
+    width: 100%;
+    height: 100%;
+    transition: opacity 400ms ease-out;
+
+    &[data-loaded='false'] {
+      opacity: 0;
+    }
+  }
+</style>
