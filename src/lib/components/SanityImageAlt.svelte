@@ -43,12 +43,11 @@
 
 <style lang="postcss">
   img {
-    width: 100%;
-    height: 100%;
+    @apply block h-full w-full;
     transition: opacity 400ms ease-out;
 
     &[data-loaded='false'] {
-      opacity: 0;
+      @apply opacity-0;
     }
   }
 </style>

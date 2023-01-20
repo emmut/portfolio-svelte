@@ -43,3 +43,9 @@
     />
   </picture>
 {/if}
+
+<style lang="postcss">
+  img {
+    @apply block;
+  }
+</style>
