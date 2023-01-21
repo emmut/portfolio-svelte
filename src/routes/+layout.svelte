@@ -30,6 +30,8 @@
     count: number;
   };
 
+  $: showAsideLast = $page.url.pathname !== '/' && $page.url.pathname !== '/repos';
+
   const { githubProfile, profile } = data;
 
   $theme = getTheme();
@@ -95,12 +97,9 @@
 </header>
 
 <div
-  class="mx-auto grid w-full grid-cols-1 gap-8 md:flex-1 md:grid-cols-[theme(width.72)_auto] lg:gap-16 md:flex-row{$page
-    .url.pathname !== '/' && $page.url.pathname !== '/repos'
-    ? ' flex-col-reverse'
-    : ''}"
+  class="mx-auto grid w-full grid-cols-1 gap-8 md:flex-1 md:grid-cols-[theme(width.72)_auto] md:flex-row lg:gap-16"
 >
-  <aside>
+  <aside class={showAsideLast ? 'order-1 md:order-none' : null}>
     {#if $page.url.pathname === '/repos'}
       <GithubProfile {githubProfile} />
     {:else}
