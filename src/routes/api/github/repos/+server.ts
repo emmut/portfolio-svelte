@@ -5,47 +5,46 @@ import type { RequestHandler } from './$types';
 import type { Repos } from '$lib/types/Repos';
 
 import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
-import { GraphQLClient, gql } from 'graphql-request';
 import { endpoint } from '$lib/config/default';
 import { json } from '@sveltejs/kit';
 
-export const GET: RequestHandler = async () => {
-  const query = gql`
-    {
-      viewer {
-        login
-        pinnedItems(first: 10) {
-          nodes {
-            ... on Repository {
-              id
-              name
-              description
-              nameWithOwner
-              url
-              primaryLanguage {
-                name
-                color
+export const GET = async () => {
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify(
+        `
+          {
+            viewer {
+              login
+              pinnedItems(first: 10) {
+                nodes {
+                  ... on Repository {
+                    id
+                    name
+                    description
+                    nameWithOwner
+                    url
+                    primaryLanguage {
+                      name
+                      color
+                    }
+                  }
+                }
               }
             }
+            user(login: "emmut") {
+              id
+            }
           }
-        }
-      }
-      user(login: "emmut") {
-        id
-      }
-    }
-  `;
+        `
+      ),
+    });
 
-  const client = new GraphQLClient(endpoint, {
-    headers: {
-      authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
-    },
-  });
-
-  try {
-    const data: Repos = await client.request(query);
-
-    return json(data);
+    return json(response);
   } catch (error) {
     throw error(502, 'Invalid response from Github');
   }
