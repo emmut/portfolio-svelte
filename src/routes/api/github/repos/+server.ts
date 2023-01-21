@@ -15,8 +15,8 @@ export const GET = async () => {
       headers: {
         authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
       },
-      body: JSON.stringify(
-        `
+      body: JSON.stringify({
+        query: `
           {
             viewer {
               login
@@ -40,11 +40,11 @@ export const GET = async () => {
               id
             }
           }
-        `
-      ),
+        `,
+      }),
     });
 
-    return json(response);
+    return json((await response.json()).data);
   } catch (error) {
     throw error(502, 'Invalid response from Github');
   }
