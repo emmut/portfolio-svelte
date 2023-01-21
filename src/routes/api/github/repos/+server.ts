@@ -1,9 +1,3 @@
-/** @see https://www.npmjs.com/package/graphql-request */
-/** @see https://docs.github.com/en/graphql */
-
-import type { RequestHandler } from './$types';
-import type { Repos } from '$lib/types/Repos';
-
 import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
 import { endpoint } from '$lib/config/default';
 import { json } from '@sveltejs/kit';
