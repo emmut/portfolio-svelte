@@ -1,8 +1,8 @@
 import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
 import { endpoint } from '$lib/config/default';
-import { json } from '@sveltejs/kit';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
-export const GET = async () => {
+export const GET: RequestHandler = async ({ fetch }) => {
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
