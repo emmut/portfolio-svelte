@@ -77,14 +77,16 @@
   <meta name="theme-color" content={currentColor} />
 </svelte:head>
 
-<header class="mx-auto flex w-full items-center gap-5 py-6 md:py-10">
+<header
+  class="mx-auto grid w-full grid-cols-[auto_1fr] gap-8 py-6 md:grid-cols-[theme(width.72)_auto] md:py-10 xl:gap-32"
+>
   <div class="md:w-96">
     <a class="text-3xl" href="/">
       <span class="text-pink-600 dark:text-green-500">/</span>emmut
     </a>
   </div>
   <div class="flex w-full">
-    <div class="mx-auto flex w-full max-w-2xl items-center justify-center gap-4">
+    <div class="mx-auto flex w-full items-center justify-center gap-4">
       <nav class="flex w-full flex-1 justify-center gap-6 font-semibold md:gap-20">
         <NavLink href="/">Stuff</NavLink>
         <NavLink href="/me">Me</NavLink>
@@ -97,7 +99,7 @@
 </header>
 
 <div
-  class="mx-auto grid w-full grid-cols-1 gap-8 md:flex-1 md:grid-cols-[theme(width.72)_auto] md:flex-row lg:gap-16"
+  class="mx-auto grid w-full grid-cols-1 gap-8 md:flex-1 md:grid-cols-[theme(width.72)_auto] xl:gap-32"
 >
   <aside class={showAsideLast ? 'order-1 md:order-none' : null}>
     {#if $page.url.pathname === '/repos'}
@@ -106,11 +108,10 @@
       <Profile {profile} />
     {/if}
   </aside>
-  <div class="w-full">
-    <main class="mx-auto w-full max-w-2xl">
-      <slot />
-    </main>
-  </div>
+
+  <main class="w-full">
+    <slot />
+  </main>
 </div>
 
 <footer class="mt-16 w-full pb-6">
