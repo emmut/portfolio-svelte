@@ -14,7 +14,8 @@
     "@sanity/desk-tool",
     "asset-source-unsplash",
     "@sanity/form-builder",
-    "vercel-deploy"
+    "vercel-deploy",
+    "@sanity/vision"
   ],
   "env": {
     "development": {
