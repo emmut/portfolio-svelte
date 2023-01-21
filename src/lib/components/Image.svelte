@@ -2,7 +2,7 @@
   import { urlFor } from '$lib/sanity';
   import { deviceDpr } from '$lib/utils';
   import type { CropMode, FitMode, SanityImageSource } from '@sanity/image-url/lib/types/types';
-  import { onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
 
   export let src: SanityImageSource | string;
   export let quality = 85;
@@ -13,6 +13,8 @@
   let image: HTMLImageElement;
   let drp = deviceDpr();
   let imgSrc: string;
+
+  const dispatch = createEventDispatcher();
 
   $: loaded = false;
 
@@ -32,6 +34,11 @@
 
     imgSrc = typeof src === 'string' ? src : '';
   });
+
+  function handleLoad() {
+    loaded = true;
+    dispatch('loaded');
+  }
 </script>
 
 {#if src}

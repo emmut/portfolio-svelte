@@ -15,6 +15,8 @@
     (open ? 'opacity-1' : 'opacity-0') +
     ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500 overflow-hidden';
 
+  $: loaded = false;
+
   let portfolioElement: HTMLAnchorElement;
 
   function handleClickOutside(event: MouseEvent) {
@@ -49,6 +51,7 @@
       alt={portfolio.image.caption}
       width="224"
       height="224"
+      on:loaded={() => (loaded = true)}
     />
   {/if}
   <div class={card}>
@@ -58,9 +61,11 @@
     <p class="text-sm line-clamp-5">{portfolio.excerpt}</p>
   </div>
 
-  <button class="info-icon" on:click|preventDefault={handleClick} title="Toggle the excerpt">
-    <Icon name="info" class="h-4 w-4" />
-  </button>
+  {#if loaded}
+    <button class="info-icon" on:click|preventDefault={handleClick} title="Toggle the excerpt">
+      <Icon name="info" class="h-4 w-4" />
+    </button>
+  {/if}
 </a>
 
 <style lang="postcss">
