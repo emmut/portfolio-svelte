@@ -78,7 +78,7 @@
 </svelte:head>
 
 <header
-  class="mx-auto grid w-full grid-cols-[auto_1fr] gap-8 py-6 md:grid-cols-[theme(width.72)_auto] md:py-10 xl:gap-32"
+  class="mx-auto grid w-full grid-cols-[auto_1fr] gap-8 py-6 md:py-10 lg:grid-cols-[theme(width.72)_1fr] xl:gap-32"
 >
   <div class="md:w-96">
     <a class="text-3xl" href="/">
@@ -99,9 +99,9 @@
 </header>
 
 <div
-  class="mx-auto grid w-full grid-cols-1 gap-8 md:flex-1 md:grid-cols-[theme(width.72)_auto] xl:gap-32"
+  class="grid w-full flex-1 grid-cols-1 place-content-start gap-8 md:flex-1 lg:grid-cols-[theme(width.72)_1fr] xl:gap-32"
 >
-  <aside class={showAsideLast ? 'order-1 md:order-none' : null}>
+  <aside class={showAsideLast ? 'order-1 lg:order-none' : null}>
     {#if $page.url.pathname === '/repos'}
       <GithubProfile {githubProfile} />
     {:else}
