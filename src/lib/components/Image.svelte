@@ -44,7 +44,7 @@
 {#if src}
   <img
     bind:this={image}
-    on:load={() => (loaded = true)}
+    on:load={handleLoad}
     data-loaded={loaded}
     class={$$props.class}
     src={imgSrc}
