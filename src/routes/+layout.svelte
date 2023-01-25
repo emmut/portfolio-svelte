@@ -63,6 +63,10 @@
 </script>
 
 <svelte:head>
+  <link rel="icon" href={currentIcon} />
+  <meta name="theme-color" content={currentColor} />
+  <meta name="description" content={siteMeta.description} />
+
   <script>
     if (
       localStorage.theme === 'DARK' ||
@@ -73,10 +77,6 @@
       document.documentElement.classList.remove('dark');
     }
   </script>
-
-  <link rel="icon" href={currentIcon} />
-  <meta name="theme-color" content={currentColor} />
-  <meta name="description" content={siteMeta.description} />
 </svelte:head>
 
 <header
