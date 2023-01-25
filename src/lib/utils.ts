@@ -2,6 +2,7 @@ import { browser } from '$app/environment';
 import { Theme } from '$lib/types/Theme';
 import type { HSLObject } from './types/Color';
 import { theme as currentTheme } from '$lib/stores/theme';
+import type { Portfolio } from './types/Portfolio';
 
 export function mergeClasses(classesA: string, classesB: string): string {
   const a = classesA.split(' ');
