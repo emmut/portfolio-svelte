@@ -22,17 +22,18 @@
   import { Theme } from '$lib/types/Theme';
   import { browser } from '$app/environment';
   import { determineTheme, getTheme, handleSwitchTheme } from '$lib/utils';
+  import type { SiteMeta } from '$lib/types/SiteMeta';
 
   // Props
   export let data: {
     githubProfile: GithubProfileType;
     profile: ProfileType;
-    count: number;
+    siteMeta: SiteMeta;
   };
 
-  $: showAsideLast = $page.url.pathname !== '/' && $page.url.pathname !== '/repos';
+  const { githubProfile, profile, siteMeta } = data;
 
-  const { githubProfile, profile } = data;
+  $: showAsideLast = $page.url.pathname !== '/' && $page.url.pathname !== '/repos';
 
   $theme = getTheme();
 
@@ -75,6 +76,7 @@
 
   <link rel="icon" href={currentIcon} />
   <meta name="theme-color" content={currentColor} />
+  <meta name="description" content={siteMeta.description} />
 </svelte:head>
 
 <header
