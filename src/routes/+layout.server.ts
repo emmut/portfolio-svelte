@@ -1,7 +1,9 @@
-import type { LayoutLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
-export const load: LayoutLoad = async ({ fetch }) => {
+export const prerender = true;
+
+export const load: LayoutServerLoad = async ({ fetch }) => {
   // prettier-ignore
   const [res1, res2] = await Promise.all([
     fetch('/api/github/profile'),
