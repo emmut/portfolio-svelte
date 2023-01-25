@@ -25,6 +25,6 @@ export const GET: RequestHandler = async ({ fetch }) => {
 
     return json((await data.json()).data);
   } catch (e) {
-    throw error(502, 'Bad Gateway');
+    throw error(502, 'Invalid response from Github');
   }
 };
