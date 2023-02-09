@@ -82,7 +82,7 @@
 <header
   class="mx-auto grid w-full grid-cols-[auto_1fr] gap-8 py-6 md:py-10 lg:grid-cols-[theme(width.72)_1fr] xl:gap-32"
 >
-  <div class="md:w-96">
+  <div class="lg:w-96">
     <a class="text-3xl" href="/">
       <span class="text-pink-600 dark:text-green-500">/</span>emmut
     </a>
