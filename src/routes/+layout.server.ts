@@ -2,8 +2,6 @@ import type { LayoutServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import { client } from '$lib/sanity';
 
-export const prerender = true;
-
 export const load: LayoutServerLoad = async ({ fetch }) => {
   try {
     const [res1, res2] = await Promise.all([
