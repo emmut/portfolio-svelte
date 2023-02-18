@@ -1,4 +1,4 @@
-import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
+import { PRIVATE_GITHUB_ACCESS_TOKEN } from '$env/static/private';
 import { endpoint } from '$lib/config/default';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
@@ -7,7 +7,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
-        authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
+        authorization: `Bearer ${PRIVATE_GITHUB_ACCESS_TOKEN}`,
       },
       body: JSON.stringify({
         query: `
