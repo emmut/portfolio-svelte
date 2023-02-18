@@ -41,13 +41,13 @@
     {#each Array(6) as _}
       <Card padding="px-3 py-[7px]">
         <span
-          class="animate-pulse title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 rounded-sm bg-gray-500 font-bold"
+          class="title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 animate-pulse rounded-sm bg-gray-500 font-bold"
         />
         <span
-          class="animate-pulse mb-1 inline-block h-3 w-4/12 rounded-sm bg-gray-500 text-sm text-zinc-600 dark:text-zinc-300"
+          class="mb-1 inline-block h-3 w-4/12 animate-pulse rounded-sm bg-gray-500 text-sm text-zinc-600 dark:text-zinc-300"
         />
         <div class="flex justify-end">
-          <div class="animate-pulse h-5 w-16 rounded-full bg-gray-500" />
+          <div class="h-5 w-16 animate-pulse rounded-full bg-gray-500" />
         </div>
       </Card>
     {/each}
