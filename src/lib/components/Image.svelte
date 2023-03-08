@@ -57,7 +57,6 @@
 
 <style lang="postcss">
   img {
-    @apply block;
     transition: opacity 400ms ease-out;
 
     &[data-loaded='false'] {
