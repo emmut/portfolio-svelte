@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Portfolio } from '$lib/types/Portfolio';
-  import { minmax } from '$lib/utils';
   import { onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   import Icon from './Icon.svelte';
@@ -40,7 +39,7 @@
 <a
   bind:this={portfolioElement}
   id="portfolio-{index}"
-  class="group relative aspect-1 {minmax(index, 4, 'col-span-4', 'col-span-8')}"
+  class="group relative aspect-1 col-span-4"
   href="/stuff/{portfolio.slug.current}"
   data-sveltekit-preload-data
 >
