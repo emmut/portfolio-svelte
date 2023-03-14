@@ -9,6 +9,7 @@
   export let crop: CropMode = 'center';
   export let fit: FitMode = 'crop';
   export let useSanity = true;
+  export let loading: 'eager' | 'lazy' = 'lazy';
 
   let image: HTMLImageElement;
   let drp = deviceDpr();
@@ -52,6 +53,7 @@
     width={$$props.width}
     height={$$props.height}
     style={$$props.width && $$props.height && `aspect-ratio: ${$$props.width}/${$$props.height}`}
+    {loading}
   />
 {/if}
 

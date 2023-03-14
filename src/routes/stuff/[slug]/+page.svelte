@@ -18,6 +18,7 @@
   alt={portfolio.image.caption}
   width="750"
   height="422"
+  loading="eager"
 />
 <div class="prose mx-auto dark:prose-invert">
   <h1 class="mb-0 text-4xl font-bold">{portfolio.title}</h1>

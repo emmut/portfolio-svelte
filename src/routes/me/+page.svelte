@@ -23,6 +23,7 @@
   alt={image.caption}
   width="750"
   height="422"
+  loading="eager"
 />
 
 <div class="prose mx-auto dark:prose-invert">
