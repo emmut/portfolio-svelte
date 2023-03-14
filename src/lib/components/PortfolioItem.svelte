@@ -51,6 +51,7 @@
       width="224"
       height="224"
       on:loaded={() => (loaded = true)}
+      loading="eager"
     />
   {/if}
   <div class={card}>
