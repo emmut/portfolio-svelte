@@ -2,6 +2,8 @@ import { client } from '$lib/sanity';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
+
 export const load = (async () => {
   try {
     const portfolios = await client.fetch(`*[_type == "portfolio"]{
