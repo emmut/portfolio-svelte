@@ -1,6 +1,5 @@
 import { browser } from '$app/environment';
 import { Theme } from '$lib/types/Theme';
-import type { HSLObject } from './types/Color';
 import { theme as currentTheme } from '$lib/stores/theme';
 
 export function mergeClasses(classesA: string, classesB: string): string {
@@ -48,7 +47,7 @@ export function minmax<T>(i: number, modulo: number, min: T, max: T): T {
   return ++i % modulo === 0 ? max : min;
 }
 
-export function hexToHsl(hex: string): HSLObject {
+export function hexToHsl(hex: string) {
   hex = hex.replace(/#/g, '');
 
   if (hex.length === 3) {
@@ -77,8 +76,8 @@ export function hexToHsl(hex: string): HSLObject {
 
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
-  let h: number;
-  let s: number;
+  let h = 0;
+  let s = 0;
   let l = (max + min) / 2;
 
   if (max === min) {
@@ -113,7 +112,7 @@ export function hexToHsl(hex: string): HSLObject {
   };
 }
 
-export function translateStringToTheme(theme: string): Theme {
+export function translateStringToTheme(theme: string) {
   if (theme === 'LIGHT') {
     return Theme.light;
   }
@@ -122,12 +121,10 @@ export function translateStringToTheme(theme: string): Theme {
     return Theme.dark;
   }
 
-  if (theme === 'SYSTEM') {
-    return Theme.system;
-  }
+  return Theme.system;
 }
 
-export function translateThemeToIndex(theme: Theme): number {
+export function translateThemeToIndex(theme: Theme) {
   if (theme === 'LIGHT') {
     return 0;
   }
@@ -136,12 +133,10 @@ export function translateThemeToIndex(theme: Theme): number {
     return 1;
   }
 
-  if (theme === 'SYSTEM') {
-    return 2;
-  }
+  return 2;
 }
 
-export function determineTheme(theme: Theme): Theme {
+export function determineTheme(theme: Theme) {
   if (theme !== 'SYSTEM') {
     return theme;
   }
@@ -156,7 +151,7 @@ export function determineTheme(theme: Theme): Theme {
 /**
  * Get the current theme from local storage. Defaults to Theme.system.
  */
-export function getTheme(): Theme {
+export function getTheme() {
   if (!browser) {
     return Theme.none;
   }

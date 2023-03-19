@@ -4,10 +4,7 @@ import { client } from '$lib/sanity';
 
 export const load: LayoutServerLoad = async ({ fetch }) => {
   try {
-    const [res1, res2] = await Promise.all([
-      fetch('/api/github/profile'),
-      fetch('/api/profile'),
-    ]);
+    const [res1, res2] = await Promise.all([fetch('/api/github/profile'), fetch('/api/profile')]);
 
     const githubProfile = await res1.json();
     const profile = await res2.json();

@@ -1,6 +1,6 @@
 import { PRIVATE_GITHUB_ACCESS_TOKEN } from '$env/static/private';
 import { endpoint } from '$lib/config/default';
-import { json, type RequestHandler } from '@sveltejs/kit';
+import { error, json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ fetch }) => {
   try {
@@ -39,7 +39,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
     });
 
     return json((await response.json()).data);
-  } catch (error) {
+  } catch (e) {
     throw error(502, 'Invalid response from Github');
   }
 };
