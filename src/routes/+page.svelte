@@ -10,7 +10,7 @@
   <title>Stuff /emmut</title>
 </svelte:head>
 
-<div class="grid grid-rows-4 grid-cols-8 lg:grid-cols-12">
+<div class="grid grid-cols-8 grid-rows-4 lg:grid-cols-12">
   {#each portfolios as portfolio, index}
     <PortfolioItem {portfolio} {index} />
   {/each}

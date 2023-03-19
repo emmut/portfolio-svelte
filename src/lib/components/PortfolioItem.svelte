@@ -39,7 +39,7 @@
 <a
   bind:this={portfolioElement}
   id="portfolio-{index}"
-  class="group relative aspect-1 col-span-4"
+  class="group relative col-span-4 aspect-1"
   href="/stuff/{portfolio.slug.current}"
   data-sveltekit-preload-data
 >

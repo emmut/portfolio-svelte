@@ -4,10 +4,4 @@ import about from './about';
 import experience from './experience';
 import profile from './profile';
 
-export default [
-  portfolio,
-  siteSettings,
-  about,
-  experience,
-  profile
-];
+export default [portfolio, siteSettings, about, experience, profile];
