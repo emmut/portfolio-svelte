@@ -1,7 +1,12 @@
 <script lang="ts">
   import { urlFor } from '$lib/sanity';
   import { deviceDpr } from '$lib/utils';
-  import type { CropMode, FitMode, SanityImageSource } from '@sanity/image-url/lib/types/types';
+  import type {
+    CropMode,
+    FitMode,
+    SanityImageHotspot,
+    SanityImageSource,
+  } from '@sanity/image-url/lib/types/types';
   import { createEventDispatcher, onMount } from 'svelte';
 
   export let src: SanityImageSource | string;
@@ -14,6 +19,11 @@
   let image: HTMLImageElement;
   let drp = deviceDpr();
   let imgSrc: string;
+  let hotspot: SanityImageHotspot;
+
+  if (typeof src === 'object' && 'hotspot' in src) {
+    hotspot = src.hotspot;
+  }
 
   const dispatch = createEventDispatcher();
 
@@ -21,15 +31,20 @@
 
   onMount(() => {
     if (useSanity) {
-      imgSrc = urlFor(src)
+      let sanityUrl = urlFor(src)
         .width(image.clientWidth)
         .height(image.clientHeight)
         .quality(quality)
         .dpr(drp)
         .crop(crop)
         .fit(fit)
-        .auto('format')
-        .url();
+        .auto('format');
+
+      if (crop === 'focalpoint' && hotspot) {
+        sanityUrl = sanityUrl.focalPoint(hotspot.x, hotspot.y);
+      }
+
+      imgSrc = sanityUrl.url();
       return;
     }
 
