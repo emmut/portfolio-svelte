@@ -6,7 +6,7 @@
 
   export let src: SanityImageSource | string;
   export let quality = 85;
-  export let crop: CropMode = 'center';
+  export let crop: CropMode = 'focalpoint';
   export let fit: FitMode = 'crop';
   export let useSanity = true;
   export let loading: 'eager' | 'lazy' = 'lazy';
