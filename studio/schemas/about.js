@@ -12,9 +12,6 @@ export default {
           name: 'caption',
           type: 'string',
           title: 'Caption',
-          options: {
-            isHighlighted: true,
-          },
         },
         {
           // Editing this field will be hidden behind an "Edit"-button
@@ -43,7 +40,6 @@ export default {
       of: [
         {
           title: 'Tool',
-          name: 'tool',
           type: 'reference',
           to: [{ type: 'experience' }],
         },

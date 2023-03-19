@@ -32,9 +32,6 @@ export default {
           name: 'caption',
           type: 'string',
           title: 'Caption',
-          options: {
-            isHighlighted: true,
-          },
         },
         {
           // Editing this field will be hidden behind an "Edit"-button
