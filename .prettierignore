@@ -12,6 +12,7 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 
-studio
+studio/dist
+.sanity
 
 .vercel
