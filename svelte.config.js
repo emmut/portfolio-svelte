@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
 
 /** @todo Make this app SSG */
@@ -12,9 +12,7 @@ const config = {
   }),
 
   kit: {
-    adapter: adapter({
-      runtime: 'edge',
-    }),
+    adapter: adapter(),
   },
 };
 
