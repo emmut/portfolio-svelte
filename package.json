@@ -41,7 +41,8 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.15",
     "@sanity/client": "^5.3.0",
-    "@sanity/image-url": "^1.0.2"
+    "@sanity/image-url": "^1.0.2",
+    "@sveltejs/adapter-node": "^1.2.3"
   },
   "volta": {
     "node": "18.12.1",
