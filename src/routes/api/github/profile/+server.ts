@@ -3,7 +3,7 @@ import { json, error, type RequestHandler } from '@sveltejs/kit';
 import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
 import { endpoint } from '$lib/config/default';
 
-export const GET: RequestHandler = async ({ fetch }) => {
+export const GET = (async ({ fetch }) => {
   try {
     const data = await fetch(endpoint, {
       method: 'POST',
@@ -27,4 +27,4 @@ export const GET: RequestHandler = async ({ fetch }) => {
   } catch (e) {
     throw error(502, 'Invalid response from Github');
   }
-};
+}) satisfies RequestHandler;

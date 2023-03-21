@@ -2,7 +2,7 @@ import { client } from '$lib/sanity';
 import type { Profile } from '$lib/types/Profile';
 import { error, json, type RequestHandler } from '@sveltejs/kit';
 
-export const GET: RequestHandler = async () => {
+export const GET = (async () => {
   const data = await client.fetch<Profile[]>(`*[_type == "profile" && _id != 'drafts.profile']{
     _id,
     bio,
@@ -22,4 +22,4 @@ export const GET: RequestHandler = async () => {
   }
 
   throw error(503, 'Could not fetch data');
-};
+}) satisfies RequestHandler;

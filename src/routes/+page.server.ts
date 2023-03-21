@@ -2,7 +2,7 @@ import { client } from '$lib/sanity';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load = (async () => {
   try {
     const portfolios = await client.fetch(`*[_type == "portfolio"]{
         _id,
@@ -18,4 +18,4 @@ export const load: PageServerLoad = async () => {
   } catch (e) {
     throw error(503, 'Could not fetch posts');
   }
-};
+}) satisfies PageServerLoad;

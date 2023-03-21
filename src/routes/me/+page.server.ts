@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 import { client } from '$lib/sanity';
 import { error } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async () => {
+export const load = (async () => {
   try {
     const data = await client.fetch(`*[_type == "about" && _id != 'drafts.about']{
       image,
@@ -25,4 +25,4 @@ export const load: PageServerLoad = async () => {
   } catch (e) {
     throw error(502, 'Could not fetch page');
   }
-};
+}) satisfies PageServerLoad;

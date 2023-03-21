@@ -2,7 +2,7 @@ import type { LayoutServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import { client } from '$lib/sanity';
 
-export const load: LayoutServerLoad = async ({ fetch }) => {
+export const load = (async ({ fetch }) => {
   try {
     const [res1, res2] = await Promise.all([fetch('/api/github/profile'), fetch('/api/profile')]);
 
@@ -21,4 +21,4 @@ export const load: LayoutServerLoad = async ({ fetch }) => {
   } catch (e) {
     throw error(503, 'Could not fetch profile data or site meta');
   }
-};
+}) satisfies LayoutServerLoad;
