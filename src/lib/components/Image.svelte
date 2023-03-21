@@ -17,7 +17,7 @@
   export let loading: 'eager' | 'lazy' = 'lazy';
 
   let image: HTMLImageElement;
-  let drp = deviceDpr();
+  let dpr = deviceDpr();
   let imgSrc: string;
   let hotspot: SanityImageHotspot;
 
@@ -35,7 +35,7 @@
         .width(image.clientWidth)
         .height(image.clientHeight)
         .quality(quality)
-        .dpr(drp)
+        .dpr(dpr)
         .crop(crop)
         .fit(fit)
         .auto('format');
