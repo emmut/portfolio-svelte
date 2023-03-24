@@ -8,8 +8,8 @@ import { env } from 'process';
 export default defineConfig({
   name: 'emmut',
   title: 'emmut',
-  projectId: 'ql7rbeue',
-  dataset: process.env.NODE_ENV || 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
   plugins: [
     deskTool({
       structure: deskStructure,
