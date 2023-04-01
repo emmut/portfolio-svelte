@@ -49,7 +49,7 @@
             : 'flex-row-reverse'}"
         >
           <div class="grid w-24 place-items-center rounded-md bg-neutral-100 p-2 dark:bg-gray-400">
-            <Image src={tool.image} alt={tool.image.caption ?? ''} width="96" height="96" />
+            <Image src={tool.image ?? ''} alt={tool?.image?.caption ?? ''} width="96" height="96" />
           </div>
           <div class="flex flex-1 flex-col">
             <h2 class="text-md text-xl font-bold">{tool.title}</h2>
