@@ -118,7 +118,7 @@
 
 <footer class="mt-16 w-full pb-6">
   <a
-    class="group flex cursor-pointer items-center justify-between"
+    class="group flex cursor-pointer items-center justify-between px-1"
     href={github}
     target="_blank"
     rel="noreferrer noopener"
@@ -130,7 +130,7 @@
     </span>
 
     <Icon
-      class="inline-block h-5 w-5 text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 dark:text-green-500"
+      class="inline-block h-5 w-5 text-pink-600 transition-all duration-100 ease-out group-hover:-rotate-180 group-focus-visible:-rotate-180 dark:text-green-500"
       name="arrow-right"
     />
   </a>
