@@ -30,7 +30,7 @@
 />
 
 <div class="prose mx-auto dark:prose-invert">
-  <h1>About me</h1>
+  <h2 class="text-3xl">About me</h2>
   <PortableText
     value={about}
     components={{
