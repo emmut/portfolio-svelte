@@ -17,8 +17,7 @@ jobs:
       - name: Add known host
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deloy with rsync
-        run: rsync -avhP --delete --exclude={".env",".git*",".vscode","studio"} . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_DEPLOY_PATH}}
-        continue-on-error: false
+        run: rsync -avhP --delete --exclude={".env",".git*",".vscode","studio"} . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_DEPLOY_PATH}} || exit 1
       - name: Build app
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
@@ -27,6 +26,6 @@ jobs:
             pnpm i
             pnpm build
             pm2 restart emmut_staging
-          '
+          ' || exit 1
       - run: echo "Deployment successfull 🎉"
       
