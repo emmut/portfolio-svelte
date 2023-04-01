@@ -5,6 +5,7 @@
   import { onMount } from 'svelte';
   import { repos } from '$lib/stores/repos';
   import { githubSessionKey } from '$lib/config/default';
+  import PageHeader from '$lib/components/PageHeader.svelte';
 
   async function getRepos(): Promise<Repo[]> {
     try {
@@ -35,6 +36,8 @@
 <svelte:head>
   <title>Repos /emmut</title>
 </svelte:head>
+
+<PageHeader>code</PageHeader>
 
 <div class="flex flex-col gap-3">
   {#await $repos}

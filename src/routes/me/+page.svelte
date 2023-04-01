@@ -5,6 +5,7 @@
   import Card from '$lib/components/Card.svelte';
   import type { SanityImageAssetDocument } from '@sanity/client';
   import type { Tool } from '$lib/types/Tool';
+  import PageHeader from '$lib/components/PageHeader.svelte';
 
   export let data;
   const about = data.about;
@@ -16,6 +17,8 @@
   <title>Me /emmut</title>
   <meta name="description" content="{toPlainText(about).substring(0, 120)}..." />
 </svelte:head>
+
+<PageHeader>me</PageHeader>
 
 <Image
   class="mb-6 w-full xl:-ml-8 xl:w-[calc(100%+4rem)] xl:min-w-[calc(100%+4rem)]"

@@ -111,7 +111,7 @@
     {/if}
   </aside>
 
-  <main class="w-full">
+  <main class="h-full w-full">
     <slot />
   </main>
 </div>
@@ -126,8 +126,7 @@
     <span
       class="inline-flex items-center space-x-1 font-semibold tracking-wide dark:text-neutral-200"
     >
-      <span class="group-hover:text-pink-600 dark:group-hover:text-green-500">/</span>
-      <span class="">emmut</span>
+      emmut
     </span>
 
     <Icon
