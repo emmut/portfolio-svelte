@@ -1,0 +1,48 @@
+name: Deploy to staging
+on:
+  push: 
+    branches: 
+      - staging
+jobs: 
+  deploy: 
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Starting deployment 🚀"
+      - uses: actions/checkout@v3
+        with:
+          ref: 'staging'
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7.3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+      - name: Install node dependencies
+        run: pnpm i --frozen-lockfile --prod || echo "🛑 Failed to install project"
+        continue-on-error: false
+      - name: Build project
+        run: pnpm build || echo "🛑 Failed to build project"
+        continue-on-error: false
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC_SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          PUBLIC_SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+      - uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      - name: Add known host
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Deloy with rsync
+        run: rsync -avhP --delete --exclude={".env",".git*",".vscode","studio"} . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_DEPLOY_PATH}}
+        continue-on-error: false
+      - name: Restart node
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
+            export PATH="$PATH:$(realpath .nvm/versions/node/v18.15.0/bin/pm2)"
+            pm2 restart emmut_staging
+          '
+      - run: echo "Deployment successfull 🎉"
+      
