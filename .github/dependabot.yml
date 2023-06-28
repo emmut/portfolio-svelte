@@ -5,11 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pnpm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "yarn" # See documentation for possible values
-    directory: "/studio" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/studio"
     schedule:
       interval: "weekly"
