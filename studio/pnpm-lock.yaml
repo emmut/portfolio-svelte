@@ -36,8 +36,8 @@ dependencies:
     specifier: ^1.1.0
     version: 1.1.0(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.13.0)(styled-components@5.2.0)
   sanity-plugin-vercel-deploy:
-    specifier: ^3.3.3
-    version: 3.3.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.13.0)(styled-components@5.2.0)
+    specifier: ^3.3.4
+    version: 3.3.4(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.13.0)(styled-components@5.2.0)
   styled-components:
     specifier: ^5.2.0
     version: 5.2.0(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
@@ -5086,8 +5086,8 @@ packages:
       - react-is
     dev: false
 
-  /sanity-plugin-vercel-deploy@3.3.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.13.0)(styled-components@5.2.0):
-    resolution: {integrity: sha512-GDDFckChL6wCciWkETRpvIyELLI+TjmQCtbdNDhNYlfxqg9PneI04vc1oZtawrp47RTovOebRU/sQ0xb+4oL2g==}
+  /sanity-plugin-vercel-deploy@3.3.4(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.13.0)(styled-components@5.2.0):
+    resolution: {integrity: sha512-07FO5gzzBehg/GUrRKr3uF2gPB/QOCLcErieJNJ+CY3nbdlCnpoUT6K3Cvn0Rn98d9Hztn+omMd6ao2Mh/Hlzw==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^18
