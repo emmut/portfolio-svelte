@@ -16,9 +16,9 @@
   export let useSanity = true;
   export let loading: 'eager' | 'lazy' = 'lazy';
 
+  let imgSrc = '';
   let image: HTMLImageElement;
   let dpr = deviceDpr();
-  let imgSrc: string;
   let hotspot: SanityImageHotspot;
 
   if (typeof src === 'object' && 'hotspot' in src) {
