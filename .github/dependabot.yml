@@ -8,8 +8,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
   - package-ecosystem: "npm"
     directory: "/studio"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
