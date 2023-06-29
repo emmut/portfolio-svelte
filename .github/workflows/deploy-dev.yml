@@ -20,7 +20,7 @@ jobs:
         with:
           cache: 'pnpm'
       - name: Install node dependencies
-        run: pnpm i --frozen-lockfile --prod || (echo "🛑 Failed to install project" && exit 1)
+        run: pnpm i --frozen-lockfile || (echo "🛑 Failed to install project" && exit 1)
         continue-on-error: false
       - name: Build project
         run: pnpm build || (echo "🛑 Failed to build project" && exit 1)
