@@ -15,15 +15,15 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7.3
+          version: 8.1
       - uses: actions/setup-node@v3
         with:
           cache: 'pnpm'
       - name: Install node dependencies
-        run: pnpm i --frozen-lockfile --prod || echo "🛑 Failed to install project"
+        run: pnpm i --frozen-lockfile --prod || echo "🛑 Failed to install project" && exit 1
         continue-on-error: false
       - name: Build project
-        run: pnpm build || echo "🛑 Failed to build project"
+        run: pnpm build || echo "🛑 Failed to build project" && exit 1
         continue-on-error: false
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
