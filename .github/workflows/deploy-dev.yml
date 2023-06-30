@@ -29,7 +29,6 @@ jobs:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLIC_SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           PUBLIC_SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-      - uses: actions/checkout@v3
       - uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_KEY }}
@@ -38,7 +37,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deloy with rsync
         run: rsync -avhP --delete --exclude={".env",".git*",".vscode","studio"} . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_DEPLOY_PATH}} || exit 1
-      - name: Build app
+      - name: Finish deploy
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "~/scripts/deploy.sh" || exit 1
       - run: echo "Deployment successfull 🎉"
