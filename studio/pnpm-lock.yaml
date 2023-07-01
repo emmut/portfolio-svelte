@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.36.1
     version: 2.36.1(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.2.0)
   '@sanity/vision':
-    specifier: ^3.13.0
-    version: 3.13.0(@babel/runtime@7.22.5)(@codemirror/lint@6.2.0)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.1)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.2.0)
+    specifier: ^3.14.1
+    version: 3.14.1(@babel/runtime@7.22.5)(@codemirror/lint@6.2.0)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.1)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.2.0)
   next-sanity:
     specifier: ^4.1.1
     version: 4.1.5(@sanity/icons@2.4.1)(@sanity/types@3.13.0)(@sanity/ui@1.7.0)(next@13.4.7)(react@18.2.0)(sanity@3.13.0)(styled-components@5.2.0)
@@ -1934,8 +1934,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/vision@3.13.0(@babel/runtime@7.22.5)(@codemirror/lint@6.2.0)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.1)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.2.0):
-    resolution: {integrity: sha512-KxfoKI2Xa4mdu/eY4ifukeYzsE22KG7BlFouTGav+/o5nvW0ANWV92EPjSCi+6bzxwlKvpCterYf46YT97PPAw==}
+  /@sanity/vision@3.14.1(@babel/runtime@7.22.5)(@codemirror/lint@6.2.0)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.1)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.2.0):
+    resolution: {integrity: sha512-i0sbqo2bhxK44fZH7kWcCKHVVnFT39RqeFLfUMiRwStqP3I7U8qUZBOcNkr5HMpDtx6ghRNS/n5pcO/QiVeCcA==}
     peerDependencies:
       react: ^18
       styled-components: ^5.2
