@@ -40,7 +40,8 @@
   "dependencies": {
     "@fontsource/inter": "^5.0.16",
     "@sanity/client": "^6.12.4",
-    "@sanity/image-url": "^1.0.2"
+    "@sanity/image-url": "^1.0.2",
+    "@sveltejs/vite-plugin-svelte": "^3.0.2"
   },
   "volta": {
     "node": "20.11.0",
