@@ -30,7 +30,7 @@
     "styled-components": "^5.2.0"
   },
   "volta": {
-    "node": "18.13.0",
-    "pnpm": "8.6.5"
+    "node": "20.11.0",
+    "pnpm": "8.15.1"
   }
 }
