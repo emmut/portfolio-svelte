@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
-
   import { Theme } from '$lib/types/Theme';
   import { theme } from '$lib/stores/theme';
   import { handleSwitchTheme, translateThemeToIndex } from '$lib/utils';
@@ -16,10 +14,7 @@
 
   let index = translateThemeToIndex($theme);
 
-  let toggleThemeState;
-  run(() => {
-    toggleThemeState = handleSwitchTheme($theme);
-  });
+  let toggleThemeState = $state(handleSwitchTheme($theme));
 
   function handleToggle() {
     index = index < 2 ? index + 1 : 0;

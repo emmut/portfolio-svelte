@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { preventDefault } from 'svelte/legacy';
-
   import type { Portfolio } from '$lib/types/Portfolio';
   import { onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   import Icon from './Icon.svelte';
-  import Image from './Image.svelte';
+  import SanityImage from './SanityImage.svelte';
 
   interface Props {
     portfolio: Portfolio;
@@ -23,18 +21,19 @@
   let loaded = $state(false);
   
 
-  let portfolioElement: HTMLAnchorElement = $state();
+  let portfolioElement = $state<HTMLAnchorElement>();
 
   function handleClickOutside(event: MouseEvent) {
-    if (!portfolioElement.contains(event.target as HTMLElement)) {
+    if (!portfolioElement?.contains(event.target as HTMLElement)) {
       open = false;
       document.removeEventListener('click', handleClickOutside);
     }
   }
 
-  function handleClick() {
+  function handleClick(event: MouseEvent) {
+    event.preventDefault();
     open = !open;
-    portfolioElement.focus();
+    portfolioElement?.focus();
     document.addEventListener('click', handleClickOutside);
   }
 
@@ -51,12 +50,12 @@
   data-sveltekit-preload-data
 >
   {#if portfolio.image}
-    <Image
+    <SanityImage
       class="absolute inset-0 -z-10 h-full w-full"
       src={portfolio?.image}
       alt={portfolio.image.caption}
-      width="224"
-      height="224"
+      width={224}
+      height={224}
       on:loaded={() => (loaded = true)}
       loading="eager"
     />
@@ -69,7 +68,7 @@
   </div>
 
   {#if loaded}
-    <button class="info-icon" onclick={preventDefault(handleClick)} title="Toggle the excerpt">
+    <button class="info-icon" onclick={handleClick} title="Toggle the excerpt">
       <Icon name="info" class="h-4 w-4" />
     </button>
   {/if}

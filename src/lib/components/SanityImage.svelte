@@ -1,52 +1,94 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
   import { urlFor } from '$lib/sanity';
   import { deviceDpr } from '$lib/utils';
-  import type { CropMode, FitMode, SanityImageSource } from '@sanity/image-url/lib/types/types';
+  import type {
+    CropMode,
+    FitMode,
+    SanityImageHotspot,
+    SanityImageSource,
+  } from '@sanity/image-url/lib/types/types';
+  import { createEventDispatcher} from 'svelte';
 
-  export let sizes = [1500, 1000, 500];
-  export let breakpoints = ['min-width: 1500px', 'min-width: 500px', 'max-width: 499px'];
-  export let src: SanityImageSource;
-  export let quality = 85;
-  export let crop: CropMode = 'center';
-  export let fit: FitMode = 'crop';
-  const aspectRatio = $$props.height / $$props.width;
+  const {
+    src,
+    quality,
+    crop = 'focalpoint',
+    fit = 'crop',
+    loading,
+    class: className,
+    alt,
+    width,
+    height,
+  }: Props = $props();
+
+  interface Props {
+    src: SanityImageSource | string;
+    quality?: number;
+    crop?: CropMode;
+    fit?: FitMode;
+    useSanity?: boolean;
+    loading?: 'eager' | 'lazy';
+    class?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+  }
+
+  let image = $state<HTMLImageElement>();
+  let dpr = deviceDpr();
+  let hotspot = $state<SanityImageHotspot>();
+  let loaded = $state(false);
+
+  if (typeof src === 'object' && 'hotspot' in src) {
+    hotspot = src.hotspot;
+  }
+
+  const dispatch = createEventDispatcher();
+
+  function getImgSrc() {
+    let sanityUrl = urlFor(src)
+      .width(image?.clientWidth ?? width ?? 0)
+      .height(image?.clientHeight ?? height ?? 0)
+      .quality(quality ?? 85)
+      .dpr(dpr)
+      .crop(crop)
+      .fit(fit ?? 'crop')
+      .auto('format');
+
+    if (crop === 'focalpoint' && hotspot) {
+      sanityUrl = sanityUrl.focalPoint(hotspot.x, hotspot.y);
+    }
+
+    return sanityUrl.url();
+  }
+
+  function handleLoad() {
+    loaded = true;
+    dispatch('loaded');
+  }
 </script>
 
 {#if src}
-  <picture>
-    {#each sizes as size, i}
-      <source
-        media="({breakpoints[i]})"
-        srcset={src &&
-          urlFor(src)
-            .height(Math.floor(size * aspectRatio))
-            .width(size)
-            .quality(quality)
-            .auto('format')
-            .crop(crop)
-            .fit(fit)
-            .dpr(deviceDpr())
-            .url()}
-      />
-    {/each}
-    <img
-      class={$$props.class}
-      src={src &&
-        urlFor(src)
-          .height(Math.floor(sizes[sizes.length - 1] * aspectRatio))
-          .width(sizes[sizes.length - 1])
-          .quality(quality)
-          .url()}
-      alt={$$props.alt}
-      width={$$props.width}
-      height={$$props.height}
-    />
-  </picture>
+  <img
+    bind:this={image}
+    onload={handleLoad}
+    data-loaded={loaded}
+    class={className}
+    src={getImgSrc()}
+    alt={alt}
+    width={width}
+    height={height}
+    style={`aspect-ratio: ${width}/${height}`}
+    {loading}
+  />
 {/if}
 
 <style lang="postcss">
   img {
-    @apply block;
+    transition: opacity 400ms ease-out;
+
+    &[data-loaded='false'] {
+      @apply opacity-0;
+    }
   }
 </style>

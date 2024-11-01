@@ -1,15 +1,21 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
   import { hexToHsl, mergeClasses } from '$lib/utils';
+ 
+  interface Props {
+    color: string;
+    class?: string;
+    children?: import('svelte').Snippet;
+  }
 
-  export let color = '#000000';
+  const { color, class: className, children }: Props = $props();
+
   const defaultClasses =
     'pill inline-block rounded-full bg-gray-300 px-2 py-0.5 text-xs font-bold dark:bg-gray-700';
-  const classes = mergeClasses(($$props.class as string) ?? '', defaultClasses);
+  const classes = mergeClasses(className ?? '', defaultClasses);
 </script>
 
 <span class={classes} style:--light={hexToHsl(color).l} style:background-color={color}>
-  <slot />
+  {@render children?.()}
 </span>
 
 <style>

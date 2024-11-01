@@ -44,7 +44,8 @@
   $theme = getTheme();
 
   let currentTheme;
-  run(() => {
+
+  $effect(() => {
     currentTheme = determineTheme($theme);
   });
 
