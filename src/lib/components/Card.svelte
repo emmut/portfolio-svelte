@@ -1,14 +1,19 @@
 <script lang="ts">
   import { mergeClasses } from '$lib/utils';
 
-  export let padding = 'px-3 py-1';
+  interface Props {
+    padding?: string;
+    children?: import('svelte').Snippet;
+  }
 
-  $: totalClasses = mergeClasses(
+  let { padding = 'px-3 py-1', children }: Props = $props();
+
+  let totalClasses = $derived(mergeClasses(
     padding,
     'flex flex-col rounded-md bg-white dark:bg-gray-600 shadow-sm shadow-neutral-300 dark:shadow-gray-900 shadow'
-  );
+  ));
 </script>
 
 <div class={totalClasses}>
-  <slot />
+  {@render children?.()}
 </div>

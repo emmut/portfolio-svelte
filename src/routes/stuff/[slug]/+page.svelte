@@ -4,7 +4,7 @@
   import Link from '$lib/components/Link.svelte';
   import Image from '$lib/components/Image.svelte';
 
-  export let data;
+  let { data } = $props();
   const portfolio: Portfolio = data.portfolio;
 </script>
 

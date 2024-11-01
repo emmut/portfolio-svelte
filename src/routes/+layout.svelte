@@ -1,4 +1,15 @@
 <script lang="ts">
+  interface Props {
+    // Props
+    data: {
+    githubProfile: GithubProfileType;
+    profile: ProfileType;
+    siteMeta: SiteMeta;
+  };
+    children?: import('svelte').Snippet;
+  }
+
+  let { data, children }: Props = $props();
   import type {
     GithubProfile as GithubProfileType,
     Profile as ProfileType,
@@ -24,30 +35,28 @@
   import { determineTheme, getTheme, handleSwitchTheme } from '$lib/utils';
   import type { SiteMeta } from '$lib/types/SiteMeta';
 
-  // Props
-  export let data: {
-    githubProfile: GithubProfileType;
-    profile: ProfileType;
-    siteMeta: SiteMeta;
-  };
+  
 
   const { githubProfile, profile, siteMeta } = data;
 
-  $: showAsideLast = $page.url.pathname !== '/' && $page.url.pathname !== '/repos';
+  let showAsideLast = $derived($page.url.pathname !== '/' && $page.url.pathname !== '/repos');
 
   $theme = getTheme();
 
-  $: currentTheme = determineTheme($theme);
+  let currentTheme;
+  run(() => {
+    currentTheme = determineTheme($theme);
+  });
 
   // prettier-ignore
-  $: currentIcon = currentTheme === Theme.dark 
+  let currentIcon = $derived(currentTheme === Theme.dark 
     ? themeProps.dark.icon 
-    : themeProps.light.icon;
+    : themeProps.light.icon);
 
   // prettier-ignore
-  $: currentColor = currentTheme === Theme.dark 
+  let currentColor = $derived(currentTheme === Theme.dark 
     ? themeProps.dark.color 
-    : themeProps.light.color;
+    : themeProps.light.color);
 
   if (browser) {
     // When the user is letting the system decide the current theme we
@@ -112,7 +121,7 @@
   </aside>
 
   <main class="h-full w-full">
-    <slot />
+    {@render children?.()}
   </main>
 </div>
 

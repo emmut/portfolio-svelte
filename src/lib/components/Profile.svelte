@@ -5,7 +5,11 @@
   import Link from './Link.svelte';
   import Image from './Image.svelte';
 
-  export let profile: Profile;
+  interface Props {
+    profile: Profile;
+  }
+
+  let { profile }: Props = $props();
 
   const { avatar, bio, name } = profile;
 </script>

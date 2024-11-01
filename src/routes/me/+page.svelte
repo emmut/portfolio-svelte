@@ -7,7 +7,7 @@
   import type { Tool } from '$lib/types/Tool';
   import PageHeader from '$lib/components/PageHeader.svelte';
 
-  export let data;
+  let { data } = $props();
   const about = data.about;
   const image: SanityImageAssetDocument = data.image;
   const tools: Tool[] = data.tools;

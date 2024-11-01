@@ -1,22 +1,29 @@
 <script lang="ts">
+  import { preventDefault } from 'svelte/legacy';
+
   import type { Portfolio } from '$lib/types/Portfolio';
   import { onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   import Icon from './Icon.svelte';
   import Image from './Image.svelte';
 
-  export let portfolio: Portfolio;
-  export let index: number;
+  interface Props {
+    portfolio: Portfolio;
+    index: number;
+  }
 
-  let open = false;
+  let { portfolio, index }: Props = $props();
 
-  $: card =
-    (open ? 'opacity-1' : 'opacity-0') +
-    ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500 overflow-hidden';
+  let open = $state(false);
 
-  $: loaded = false;
+  let card =
+    $derived((open ? 'opacity-1' : 'opacity-0') +
+    ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500 overflow-hidden');
 
-  let portfolioElement: HTMLAnchorElement;
+  let loaded = $state(false);
+  
+
+  let portfolioElement: HTMLAnchorElement = $state();
 
   function handleClickOutside(event: MouseEvent) {
     if (!portfolioElement.contains(event.target as HTMLElement)) {
@@ -62,7 +69,7 @@
   </div>
 
   {#if loaded}
-    <button class="info-icon" on:click|preventDefault={handleClick} title="Toggle the excerpt">
+    <button class="info-icon" onclick={preventDefault(handleClick)} title="Toggle the excerpt">
       <Icon name="info" class="h-4 w-4" />
     </button>
   {/if}
