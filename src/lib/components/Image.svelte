@@ -1,80 +1,41 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
-  import { urlFor } from '$lib/sanity';
-  import { deviceDpr } from '$lib/utils';
-  import type {
-    CropMode,
-    FitMode,
-    SanityImageHotspot,
-    SanityImageSource,
-  } from '@sanity/image-url/lib/types/types';
-  import { createEventDispatcher, onMount } from 'svelte';
-
-  export let src: SanityImageSource | string;
-  export let quality = 85;
-  export let crop: CropMode = 'focalpoint';
-  export let fit: FitMode = 'crop';
-  export let useSanity = true;
-  export let loading: 'eager' | 'lazy' = 'lazy';
-
-  let imgSrc = '';
-  let image: HTMLImageElement;
-  let dpr = deviceDpr();
-  let hotspot: SanityImageHotspot;
-
-  if (typeof src === 'object' && 'hotspot' in src) {
-    hotspot = src.hotspot;
+  interface Props {
+    src: string;
+    class?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    onLoaded?: () => void;
+    loading: 'eager' | 'lazy';
   }
 
-  const dispatch = createEventDispatcher();
-
-  $: loaded = false;
-
-  onMount(() => {
-    if (useSanity) {
-      let sanityUrl = urlFor(src)
-        .width(image.clientWidth)
-        .height(image.clientHeight)
-        .quality(quality)
-        .dpr(dpr)
-        .crop(crop)
-        .fit(fit)
-        .auto('format');
-
-      if (crop === 'focalpoint' && hotspot) {
-        sanityUrl = sanityUrl.focalPoint(hotspot.x, hotspot.y);
-      }
-
-      imgSrc = sanityUrl.url();
-      return;
-    }
-
-    imgSrc = typeof src === 'string' ? src : '';
-  });
+  let { src, class: className, alt, width, height, onLoaded, loading = 'lazy' }: Props = $props();
+  let loaded = $state(false);
+  
 
   function handleLoad() {
     loaded = true;
-    dispatch('loaded');
+    onLoaded?.();
   }
 </script>
 
 {#if src}
   <img
-    bind:this={image}
-    on:load={handleLoad}
+    onload={handleLoad}
     data-loaded={loaded}
-    class={$$props.class}
-    src={imgSrc}
-    alt={$$props.alt}
-    width={$$props.width}
-    height={$$props.height}
-    style={$$props.width && $$props.height && `aspect-ratio: ${$$props.width}/${$$props.height}`}
+    class={className}
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    style={`aspect-ratio: ${width}/${height}`}
     {loading}
   />
 {/if}
 
 <style lang="postcss">
-  img {
+  :global(body.js img) {
     transition: opacity 400ms ease-out;
 
     &[data-loaded='false'] {
