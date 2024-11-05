@@ -56,7 +56,7 @@
       alt={portfolio.image.caption}
       width={224}
       height={224}
-      on:loaded={() => (loaded = true)}
+      onLoaded={() => (loaded = true)}
       loading="eager"
     />
   {/if}

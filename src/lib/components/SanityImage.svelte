@@ -7,7 +7,6 @@
     SanityImageHotspot,
     SanityImageSource,
   } from '@sanity/image-url/lib/types/types';
-  import { createEventDispatcher} from 'svelte';
 
   const {
     src,
@@ -19,6 +18,7 @@
     alt,
     width,
     height,
+    onLoaded,
   }: Props = $props();
 
   interface Props {
@@ -32,6 +32,7 @@
     alt?: string;
     width?: number;
     height?: number;
+    onLoaded?: () => void;
   }
 
   let image = $state<HTMLImageElement>();
@@ -42,8 +43,6 @@
   if (typeof src === 'object' && 'hotspot' in src) {
     hotspot = src.hotspot;
   }
-
-  const dispatch = createEventDispatcher();
 
   function getImgSrc() {
     let sanityUrl = urlFor(src)
@@ -64,7 +63,7 @@
 
   function handleLoad() {
     loaded = true;
-    dispatch('loaded');
+    onLoaded?.();
   }
 </script>
 
