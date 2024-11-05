@@ -69,7 +69,10 @@
           currentTheme = determineTheme(handleSwitchTheme(Theme.system));
         }
       });
+      
+      document.body.classList.add('js');
   }
+
 </script>
 
 <svelte:head>

@@ -84,7 +84,7 @@
 {/if}
 
 <style lang="postcss">
-  img {
+  :global(body.js img) {
     transition: opacity 400ms ease-out;
 
     &[data-loaded='false'] {
