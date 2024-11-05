@@ -4,7 +4,11 @@
   import { github } from '$lib/config/default';
   import Image from './Image.svelte';
 
-  export let githubProfile: GithubProfile;
+  interface Props {
+    githubProfile: GithubProfile;
+  }
+
+  let { githubProfile }: Props = $props();
 
   const { avatarUrl, login, bio } = githubProfile.viewer;
 </script>

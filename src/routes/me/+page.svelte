@@ -1,13 +1,13 @@
 <script lang="ts">
   import { PortableText, toPlainText } from '@portabletext/svelte';
   import Link from '$lib/components/Link.svelte';
-  import Image from '$lib/components/Image.svelte';
+  import SanityImage from '$lib/components/SanityImage.svelte';
   import Card from '$lib/components/Card.svelte';
   import type { SanityImageAssetDocument } from '@sanity/client';
   import type { Tool } from '$lib/types/Tool';
   import PageHeader from '$lib/components/PageHeader.svelte';
 
-  export let data;
+  let { data } = $props();
   const about = data.about;
   const image: SanityImageAssetDocument = data.image;
   const tools: Tool[] = data.tools;
@@ -20,12 +20,12 @@
 
 <PageHeader>me</PageHeader>
 
-<Image
+<SanityImage
   class="mb-6 w-full xl:-ml-8 xl:w-[calc(100%+4rem)] xl:min-w-[calc(100%+4rem)]"
   src={image}
   alt={image.caption}
-  width="750"
-  height="422"
+  width={750}
+  height={422}
   loading="eager"
 />
 
@@ -49,7 +49,12 @@
             : 'flex-row-reverse'}"
         >
           <div class="grid w-24 place-items-center rounded-md bg-neutral-100 p-2 dark:bg-gray-400">
-            <Image src={tool.image ?? ''} alt={tool?.image?.caption ?? ''} width="96" height="96" />
+            <SanityImage
+              src={tool.image ?? ''}
+              alt={tool?.image?.caption ?? ''}
+              width={96}
+              height={96}
+            />
           </div>
           <div class="flex flex-1 flex-col">
             <h2 class="text-md text-xl font-bold">{tool.title}</h2>

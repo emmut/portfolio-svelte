@@ -2,9 +2,9 @@
   import { PortableText } from '@portabletext/svelte';
   import type { Portfolio } from '$lib/types/Portfolio';
   import Link from '$lib/components/Link.svelte';
-  import Image from '$lib/components/Image.svelte';
+  import SanityImage from '$lib/components/SanityImage.svelte';
 
-  export let data;
+  let { data } = $props();
   const portfolio: Portfolio = data.portfolio;
 </script>
 
@@ -13,12 +13,12 @@
 </svelte:head>
 
 {#if portfolio.image}
-  <Image
+  <SanityImage
     class="mb-6 w-full xl:-ml-8 xl:w-[calc(100%+4rem)] xl:min-w-[calc(100%+4rem)]"
     src={portfolio.image}
     alt={portfolio.image.caption}
-    width="750"
-    height="422"
+    width={750}
+    height={422}
     loading="eager"
   />
 {/if}

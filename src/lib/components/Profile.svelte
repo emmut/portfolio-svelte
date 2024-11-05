@@ -3,20 +3,24 @@
   import type { Profile } from '$lib/types/Profile';
   import { PortableText } from '@portabletext/svelte';
   import Link from './Link.svelte';
-  import Image from './Image.svelte';
+  import SanityImage from './SanityImage.svelte';
 
-  export let profile: Profile;
+  interface Props {
+    profile: Profile;
+  }
+
+  let { profile }: Props = $props();
 
   const { avatar, bio, name } = profile;
 </script>
 
 <Card padding="py-4 px-3">
-  <Image
+  <SanityImage
     src={avatar}
     class="max-w-sm rounded-full ring-4 ring-zinc-300/70 dark:ring-neutral-100/70"
     alt="Me"
-    width="112"
-    height="112"
+    width={112}
+    height={112}
   />
 
   <div class="text-md mt-4 font-bold tracking-wide">

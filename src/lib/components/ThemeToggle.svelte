@@ -14,7 +14,7 @@
 
   let index = translateThemeToIndex($theme);
 
-  $: toggleThemeState = handleSwitchTheme($theme);
+  let toggleThemeState = $state(handleSwitchTheme($theme));
 
   function handleToggle() {
     index = index < 2 ? index + 1 : 0;
@@ -27,7 +27,7 @@
 
 <button
   class="relative grid h-7 w-7 cursor-pointer place-items-center rounded-full bg-pink-600 text-neutral-50 dark:bg-neutral-200 dark:text-gray-800"
-  on:click={handleToggle}
+  onclick={handleToggle}
   aria-label="Select theme"
 >
   {#if toggleThemeState === Theme.light}
