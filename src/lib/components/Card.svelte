@@ -10,7 +10,7 @@
 
   let totalClasses = $derived(mergeClasses(
     padding,
-    'flex flex-col rounded-md bg-white dark:bg-gray-600 shadow-sm shadow-neutral-300 dark:shadow-gray-900 shadow'
+    'flex flex-col rounded-md bg-white dark:bg-gray-600 shadow-xs shadow-neutral-300 dark:shadow-gray-900 shadow-sm'
   ));
 </script>
 

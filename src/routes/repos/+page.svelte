@@ -44,10 +44,10 @@
     {#each Array(6) as _}
       <Card padding="px-3 py-[7px]">
         <span
-          class="title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 animate-pulse rounded-sm bg-gray-500 font-bold"
+          class="title text-md mt-0.5 mb-2 inline-block h-4 w-6/12 animate-pulse rounded-xs bg-gray-500 font-bold"
 ></span>
         <span
-          class="mb-1 inline-block h-3 w-4/12 animate-pulse rounded-sm bg-gray-500 text-sm text-zinc-600 dark:text-zinc-300"
+          class="mb-1 inline-block h-3 w-4/12 animate-pulse rounded-xs bg-gray-500 text-sm text-zinc-600 dark:text-zinc-300"
 ></span>
         <div class="flex justify-end">
           <div class="h-5 w-16 animate-pulse rounded-full bg-gray-500"></div>
