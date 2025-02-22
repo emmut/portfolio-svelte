@@ -68,39 +68,8 @@
   </div>
 
   {#if loaded}
-    <button class="info-icon" onclick={handleClick} title="Toggle the excerpt">
+    <button class="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-neutral-200 p-1 font-bold text-gray-900 hover:bg-neutral-100 focus:bg-neutral-100 focus:ring-2" onclick={handleClick} title="Toggle the excerpt">
       <Icon name="info" class="h-4 w-4" />
     </button>
   {/if}
 </a>
-
-<style lang="postcss">
-  .info-icon {
-    /* Position */
-    @apply absolute 
-      top-2 
-      right-2;
-
-    /* Layout */
-    @apply flex 
-      h-6 
-      w-6 
-      items-center 
-      justify-center
-      p-1;
-
-    /* Appearance */
-    @apply cursor-pointer 
-      rounded-full 
-      bg-neutral-200 
-      font-bold 
-      text-gray-900;
-
-    /* Hover */
-    @apply hover:bg-neutral-100;
-
-    /* Focus */
-    @apply focus:bg-neutral-100 
-      focus:ring-2;
-  }
-</style>
