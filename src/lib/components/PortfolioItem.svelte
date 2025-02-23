@@ -15,7 +15,7 @@
   let open = $state(false);
 
   let card =
-    $derived((open ? 'opacity-1' : 'opacity-0') +
+    $derived((open ? 'opacity-100' : 'opacity-0') +
     ' h-full bg-gray-900/80 p-4 text-neutral-50 transition-all duration-500 overflow-hidden');
 
   let loaded = $state(false);
