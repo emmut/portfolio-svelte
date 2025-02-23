@@ -47,7 +47,7 @@
   id="portfolio-{index}"
   class="group relative col-span-4 aspect-1"
   href="/stuff/{portfolio.slug.current}"
-  data-sveltekit-preload-data
+  data-sveltekit-preload-data="hover"
 >
   {#if portfolio.image}
     <SanityImage

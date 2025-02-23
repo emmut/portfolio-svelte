@@ -36,18 +36,18 @@
   import type { SiteMeta } from '$lib/types/SiteMeta';
 
   
-
   const { githubProfile, profile, siteMeta } = data;
 
   let showAsideLast = $derived($page.url.pathname !== '/' && $page.url.pathname !== '/repos');
 
   $theme = getTheme();
 
-  let currentTheme;
+  let currentTheme = $state(determineTheme($theme));
 
   $effect(() => {
     currentTheme = determineTheme($theme);
   });
+
 
   // prettier-ignore
   let currentIcon = $derived(currentTheme === Theme.dark 

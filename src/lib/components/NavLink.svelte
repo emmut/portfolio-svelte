@@ -10,6 +10,6 @@
   let isActive = $derived($page.url.pathname === props.href);
 </script>
 
-<a {...props} class:active={isActive} data-sveltekit-preload-data>
+<a {...props} class:active={isActive} data-sveltekit-preload-data="hover">
   {@render props?.children?.()}
 </a>
